@@ -1,0 +1,53 @@
+{
+  "bundleVersion": 1,
+  "artifacts": {
+    "botSpec": {
+      "specVersion": 1,
+      "bot": { "name": "Service menu", "defaultLocale": "ru" },
+      "entry": "menu",
+      "blocks": {
+        "menu": {
+          "actions": [{
+            "type": "send",
+            "text": "Выберите услугу",
+            "buttons": [
+              { "text": "Консультация", "action": { "type": "choice", "key": "consultation", "run": "selected" }, "aliases": ["консультация"] },
+              { "text": "Условия", "action": { "type": "url", "url": "https://club.example/terms" } }
+            ]
+          }]
+        },
+        "selected": { "actions": [{ "type": "send", "text": "Вы выбрали консультацию" }] }
+      }
+    },
+    "dataFields": { "dataFieldCatalogVersion": 1, "fields": [] },
+    "acceptance": {
+      "acceptanceVersion": 1,
+      "scenarios": [{
+        "key": "choose_consultation",
+        "description": "Business choice reaches its logical result.",
+        "steps": [
+          { "type": "start" }, { "type": "processEffects" },
+          { "type": "button", "block": "menu", "actionIndex": 0, "buttonIndex": 0 },
+          { "type": "expectBlock", "block": "selected" }, { "type": "processEffects" },
+          { "type": "expectNoPendingWork" }
+        ]
+      }, {
+        "key": "choose_by_alias",
+        "description": "The authored text alias reaches the same business choice.",
+        "steps": [
+          { "type": "start" }, { "type": "text", "text": "Консультация" },
+          { "type": "expectBlock", "block": "selected" }, { "type": "processEffects" },
+          { "type": "expectNoPendingWork" }
+        ]
+      }]
+    },
+    "qualification": {
+      "contractVersion": 1,
+      "qualificationKey": "simple-menu-v1",
+      "requirements": [
+        { "id": "service_choice", "scenarioKey": "choose_consultation", "requiredAssertions": [{ "type": "assert_no_pending_work", "match": {} }] },
+        { "id": "alias_choice", "scenarioKey": "choose_by_alias", "requiredAssertions": [{ "type": "assert_no_pending_work", "match": {} }] }
+      ]
+    }
+  }
+}

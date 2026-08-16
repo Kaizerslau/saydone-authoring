@@ -1,0 +1,11 @@
+# SayDone AI authoring V1
+
+Start here: docs/authoring/AI_START_HERE.md
+Machine-readable manifest: docs/authoring/AI_AUTHORING_MANIFEST_V1.json
+Ordinary-chat protocol: docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md
+Primitive guide: docs/authoring/AUTHORING_PRIMITIVES_V1.md
+
+Use only the contract pages selected by the manifest. The supported source path is
+SayDoneAuthoringBundleV1 -> preview/RepairReportV1 -> checksum-bound
+SayDoneAuthoringPatchV1 -> trusted confirmation and loader. Do not author a
+BotPackage directly for the ordinary AI path.

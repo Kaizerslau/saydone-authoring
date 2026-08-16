@@ -1,0 +1,70 @@
+{
+  "manifestVersion": 1,
+  "status": "current",
+  "documentationVersion": "1.0.0",
+  "workflow": [
+    "SayDoneAuthoringBundleV1",
+    "preview",
+    "RepairReportV1",
+    "SayDoneAuthoringPatchV1",
+    "trusted_confirmation_and_loader"
+  ],
+  "artifactVersions": {
+    "BotSpecV1": 1,
+    "BotAcceptanceSpecV1": 1,
+    "DataFieldCatalogV1": 1,
+    "SayDoneAuthoringBundleV1": 1,
+    "SayDoneAuthoringPatchV1": 1,
+    "RepairReportV1": 1
+  },
+  "contracts": [
+    { "id": "bot_spec", "path": "docs/authoring/BOT_SPEC_V1_CONTRACT.md", "status": "authoritative" },
+    { "id": "compiler", "path": "docs/authoring/BOT_AUTHORING_COMPILER_CONTRACT_V1.md", "status": "authoritative" },
+    { "id": "acceptance", "path": "docs/authoring/BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md", "status": "authoritative" },
+    { "id": "bundle_patch", "path": "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md", "status": "authoritative" },
+    { "id": "data_fields", "path": "docs/architecture/BUSINESS_DATA_FIELDS_V1.md", "status": "authoritative" },
+    { "id": "language", "path": "docs/architecture/AUTHORING_LANGUAGE_V1.md", "status": "authoritative" },
+    { "id": "content", "path": "docs/architecture/CONTENT_VERSIONING_V1.md", "status": "authoritative" },
+    { "id": "http", "path": "docs/architecture/HTTP_EGRESS_V1.md", "status": "authoritative" }
+  ],
+  "schemas": [
+    { "artifact": "BotSpecV1", "status": "not_published", "authoritativeContract": "docs/authoring/BOT_SPEC_V1_CONTRACT.md", "reason": "Strict parser and semantic validator reject cases a partial JSON Schema would misrepresent." },
+    { "artifact": "BotAcceptanceSpecV1", "status": "not_published", "authoritativeContract": "docs/authoring/BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md", "reason": "Canonical source-level lowering is authoritative." },
+    { "artifact": "SayDoneAuthoringBundleV1", "status": "not_published", "authoritativeContract": "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md", "reason": "Strict duplicate-key and forbidden-source validation is authoritative." },
+    { "artifact": "SayDoneAuthoringPatchV1", "status": "not_published", "authoritativeContract": "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md", "reason": "Exact source revision/checksum binding requires the canonical parser." }
+  ],
+  "discovery": {
+    "startHere": "docs/authoring/AI_START_HERE.md",
+    "chatProtocol": "docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md",
+    "primitives": "docs/authoring/AUTHORING_PRIMITIVES_V1.md",
+    "capabilityIndex": "docs/authoring/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md",
+    "errorCatalog": "docs/authoring/AI_PUBLIC_ERROR_CATALOG_V1.md",
+    "examples": "docs/authoring/examples/README.md",
+    "readingProtocol": "docs/authoring/AI_START_HERE.md"
+  },
+  "examples": [
+    { "id": "simple_menu", "path": "docs/authoring/examples/simple-menu.bundle.json", "kind": "standalone_bundle", "topics": ["structure", "messaging"] },
+    { "id": "lead_application", "path": "docs/authoring/examples/lead-application.bundle.json", "kind": "standalone_bundle", "topics": ["data", "logic", "inputs", "content", "http", "triggers"] },
+    { "id": "lead_application_patch", "path": "docs/authoring/examples/lead-application.patch.template.json", "kind": "bound_fragment", "topics": ["bundle_patch"] },
+    { "id": "schedule_cancel", "path": "docs/authoring/examples/schedule-cancel.fragment.json", "kind": "bound_fragment", "topics": ["structure", "messaging"] }
+  ],
+  "topicSelection": [
+    { "topic": "structure", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/authoring/BOT_SPEC_V1_CONTRACT.md"], "examples": ["simple_menu", "schedule_cancel"] },
+    { "topic": "messaging", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/authoring/BOT_SPEC_V1_CONTRACT.md"], "examples": ["simple_menu"] },
+    { "topic": "data", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/architecture/BUSINESS_DATA_FIELDS_V1.md"], "examples": ["lead_application"] },
+    { "topic": "logic", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/architecture/AUTHORING_LANGUAGE_V1.md"], "examples": ["lead_application"] },
+    { "topic": "inputs", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/authoring/BOT_SPEC_V1_CONTRACT.md"], "examples": ["lead_application"] },
+    { "topic": "content", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/architecture/CONTENT_VERSIONING_V1.md"], "examples": ["lead_application"] },
+    { "topic": "http", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/architecture/HTTP_EGRESS_V1.md"], "examples": ["lead_application"] },
+    { "topic": "triggers", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/authoring/BOT_SPEC_V1_CONTRACT.md"], "examples": ["lead_application"] },
+    { "topic": "acceptance", "contracts": ["docs/authoring/BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md"], "examples": [] },
+    { "topic": "bundle_patch", "contracts": ["docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md", "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md"], "examples": ["lead_application_patch"] }
+  ],
+  "dependencies": ["D-052", "D-053", "D-074", "D-075", "D-078", "D-079", "D-080", "D-083"],
+  "stability": {
+    "source": "versioned_and_strict",
+    "compiler": "pure_and_deterministic",
+    "runtimeIds": "compiler_owned_not_public_source",
+    "agentMode": "optional"
+  }
+}

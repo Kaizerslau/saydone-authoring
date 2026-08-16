@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "caseKey": "case-a-service-menu",
+      "kind": "create",
+      "topics": ["structure", "data", "messaging", "triggers", "acceptance", "bundle_patch"],
+      "task": "Создай self-contained SayDoneAuthoringBundleV1 для Telegram-бота студии. После /start он показывает три логических варианта услуги: audit, workshop и support. Выбор audit должен сохраняться в user DataField selected_service. Затем бот спрашивает одним typed text input название компании и сохраняет его в user DataField company_name. Команда /help должна показать помощь, неизвестный текст в menu должен попадать в fallback. Добавь независимые acceptance scenarios для выбора audit, /help и fallback, а также qualification contract. Не используй provider payload, runtime IDs, credentials или deployment operations."
+    },
+    {
+      "caseKey": "case-b-bounded-repair",
+      "kind": "repair",
+      "topics": ["structure", "bundle_patch"],
+      "task": "Получив invalid Bundle/current source snapshot, реальный RepairReportV1 и его exact baseRevision/baseChecksum, верни только один bounded SayDoneAuthoringPatchV1. Исправь указанную source-level проблему без полной регенерации Bundle и без изменения несвязанных artifacts."
+    },
+    {
+      "caseKey": "case-c-lead-application",
+      "kind": "vertical",
+      "topics": ["structure", "data", "logic", "inputs", "content", "http", "triggers", "acceptance", "bundle_patch"],
+      "task": "Создай self-contained SayDoneAuthoringBundleV1 для Telegram-бота первичного отбора заявок на внедрение. Пользователь начинает через /start или статический start payload partner, выбирает один из вариантов integration или migration, проходит reusable subflow с typed number input team_size и typed telegram contact input. Сохрани ответы в canonical DataFields. Conditions или ordered RuleSet должны классифицировать заявку: team_size от 20 даёт enterprise, иначе standard. Используй хотя бы один SafeTransform для сформированного значения. Покажи итог через зарегистрированный content entry и semantic request_contact action. После явного confirm controlled static HTTP resource должен отправить логические поля в CRM и сохранить response external reference в canonical DataField; credentials остаются только logical resource reference. Добавь command /help, bounded fallback, независимый BotAcceptanceSpecV1 и qualification contract. Не используй Dataset, live network, реальные credentials, provider payload или generated IDs."
+    }
+  ]
+}

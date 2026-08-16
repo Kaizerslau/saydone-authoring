@@ -1,0 +1,122 @@
+{
+  "exportVersion": 1,
+  "sourceRepository": "Kaizerslau/saydone-authoring",
+  "sourceCommit": "aecfab45011dd3cdb025cfd83e7a29f1ba2be6ac",
+  "files": [
+    {
+      "path": "docs/architecture/AUTHORING_LANGUAGE_V1.md",
+      "bytes": 12113,
+      "sha256": "f3a53afcdad805f552c4770f7b095571e61429ac865ca21376de0693007b9a13"
+    },
+    {
+      "path": "docs/architecture/BUSINESS_DATA_FIELDS_V1.md",
+      "bytes": 5736,
+      "sha256": "bd292c7857420b1e6d45eec094c5f984c0696a49f92f40e7ea2c13350a74e783"
+    },
+    {
+      "path": "docs/architecture/CONTENT_VERSIONING_V1.md",
+      "bytes": 22291,
+      "sha256": "3a8395a94f3b9959bd2111b85777d4367709ad261a0c791033f81518819bb755"
+    },
+    {
+      "path": "docs/architecture/HTTP_EGRESS_V1.md",
+      "bytes": 2989,
+      "sha256": "15e85d2433c165126fe062776b86a644f0c93e1f9c47b2af9031ea405fe2777f"
+    },
+    {
+      "path": "docs/authoring/AI_AUTHORING_MANIFEST_V1.json",
+      "bytes": 5354,
+      "sha256": "c38967f5b12af5c0d4e7f0635e16d37c8929a0aca9776350aee1031e94501a74"
+    },
+    {
+      "path": "docs/authoring/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md",
+      "bytes": 2241,
+      "sha256": "ba0a606fd591ced0a0c80dbf962479bca2e0afe313e0f88c76f818900dd7eca4"
+    },
+    {
+      "path": "docs/authoring/AI_PUBLIC_ERROR_CATALOG_V1.md",
+      "bytes": 3265,
+      "sha256": "8e49cf2ad1deff78ad0cbe88aedea5212f102cd94c9043088c29efd4a586ac4e"
+    },
+    {
+      "path": "docs/authoring/AI_START_HERE.md",
+      "bytes": 2678,
+      "sha256": "c9823c7a67f15e319b0d0c22a20e9eb560f79802413a95a2d750eaa38dec8953"
+    },
+    {
+      "path": "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md",
+      "bytes": 8286,
+      "sha256": "3aeaa34877cdfdfce2590e89c6e3a629882c8e0932c296ce86acd5ccfc9e73e1"
+    },
+    {
+      "path": "docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md",
+      "bytes": 2352,
+      "sha256": "912c598f90607d44c9d2441b09bd4be7e771c6efcf09da9e5a02ab9593496828"
+    },
+    {
+      "path": "docs/authoring/AUTHORING_PRIMITIVES_V1.md",
+      "bytes": 3535,
+      "sha256": "7c2086bbf8c0b065a0c304845d40ed75de0b4a8505623a614e5f8c99259d7e64"
+    },
+    {
+      "path": "docs/authoring/BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md",
+      "bytes": 3423,
+      "sha256": "630a37d9d0665c5e9c32d6904d1cb055a28c5b1735a1e059e7e25b2707a7af20"
+    },
+    {
+      "path": "docs/authoring/BOT_AUTHORING_COMPILER_CONTRACT_V1.md",
+      "bytes": 15253,
+      "sha256": "f80e0340064371dde17c19c1943741e4c1dacd818b729bbc4eebad4c67f69346"
+    },
+    {
+      "path": "docs/authoring/BOT_SPEC_V1_CONTRACT.md",
+      "bytes": 29196,
+      "sha256": "e9e52b65bbc193b98ee2a530c027b456c4ad257b56956cd1a28783e57f5e42c6"
+    },
+    {
+      "path": "docs/authoring/examples/lead-application.bundle.json",
+      "bytes": 12137,
+      "sha256": "1e730f11aae69f2db80adfe81a9d777a8f4c7b2ea51e76c5eccb089051498749"
+    },
+    {
+      "path": "docs/authoring/examples/lead-application.patch.template.json",
+      "bytes": 407,
+      "sha256": "da4a71a3f4ac900d31fdb86c4e1a1b3a286d492cc990f020ed8d505dd0e28e37"
+    },
+    {
+      "path": "docs/authoring/examples/README.md",
+      "bytes": 1208,
+      "sha256": "9d937534d8ca74fae64addc573f09a426d06a4066d8aa41d93bbe9cb0995395a"
+    },
+    {
+      "path": "docs/authoring/examples/schedule-cancel.fragment.json",
+      "bytes": 277,
+      "sha256": "d13df1cf493717a0e210a8c62179f473080424b9e4fff3a44c7e7416f5748517"
+    },
+    {
+      "path": "docs/authoring/examples/simple-menu.bundle.json",
+      "bytes": 2154,
+      "sha256": "a0147098c1cc04c2f32e10cccbc46de57bac3b1f7cbb4f7bc5daf6ff9252782d"
+    },
+    {
+      "path": "docs/authoring/FRESH_AI_QUALIFICATION_OWNER_RUNBOOK_V1.md",
+      "bytes": 5324,
+      "sha256": "7e55f6ed3b32e4e84cd89e447f0e651fded72a189433d283219da1b986cfad1e"
+    },
+    {
+      "path": "docs/evidence/AUTHORING_2C_FRESH_AI_TASKS_V1.json",
+      "bytes": 3208,
+      "sha256": "20560a1b63432c497d03d5e3276d006e3e08c6af9a581d89fca2b62dcb0cd1e8"
+    },
+    {
+      "path": "llms.txt",
+      "bytes": 546,
+      "sha256": "73f951c24f356745716fb3333aa3d4af54006a6e8830ac01998eb4f0d739de60"
+    },
+    {
+      "path": "README.md",
+      "bytes": 962,
+      "sha256": "45cbb0203e00c23e94e9ab40b72eb9d612cd3bfa8225aaa77c4cc7b013b38f5e"
+    }
+  ]
+}
