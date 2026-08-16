@@ -1,7 +1,7 @@
 {
   "exportVersion": 1,
   "sourceRepository": "Kaizerslau/saydone-authoring",
-  "sourceCommit": "aecfab45011dd3cdb025cfd83e7a29f1ba2be6ac",
+  "sourceCommit": "4aa799631e5e139f94a81a545a45c122cb0112bb",
   "files": [
     {
       "path": "docs/architecture/AUTHORING_LANGUAGE_V1.md",
@@ -40,8 +40,8 @@
     },
     {
       "path": "docs/authoring/AI_START_HERE.md",
-      "bytes": 2678,
-      "sha256": "c9823c7a67f15e319b0d0c22a20e9eb560f79802413a95a2d750eaa38dec8953"
+      "bytes": 3089,
+      "sha256": "34172d9fc1855bd70d0d9322ae2c1164bcfc3c9d5e1f3e3c8544acaa4de6c2a9"
     },
     {
       "path": "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md",
@@ -50,13 +50,13 @@
     },
     {
       "path": "docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md",
-      "bytes": 2352,
-      "sha256": "912c598f90607d44c9d2441b09bd4be7e771c6efcf09da9e5a02ab9593496828"
+      "bytes": 2696,
+      "sha256": "0b069e2a150f64ce5cec7cab83c462905db58054bc0f0f780898c95d6748e47a"
     },
     {
       "path": "docs/authoring/AUTHORING_PRIMITIVES_V1.md",
-      "bytes": 3535,
-      "sha256": "7c2086bbf8c0b065a0c304845d40ed75de0b4a8505623a614e5f8c99259d7e64"
+      "bytes": 3823,
+      "sha256": "97de68281ab12c13714fee30cb67f5d174e30af2a6d925f7c6033e8b52ffa685"
     },
     {
       "path": "docs/authoring/BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md",
@@ -85,8 +85,8 @@
     },
     {
       "path": "docs/authoring/examples/README.md",
-      "bytes": 1208,
-      "sha256": "9d937534d8ca74fae64addc573f09a426d06a4066d8aa41d93bbe9cb0995395a"
+      "bytes": 1533,
+      "sha256": "f4994b42f2533ace6392fbb00ce1a5c31141b9761536a51c1ec0f1c1bad2534b"
     },
     {
       "path": "docs/authoring/examples/schedule-cancel.fragment.json",
@@ -100,8 +100,8 @@
     },
     {
       "path": "docs/authoring/FRESH_AI_QUALIFICATION_OWNER_RUNBOOK_V1.md",
-      "bytes": 5324,
-      "sha256": "7e55f6ed3b32e4e84cd89e447f0e651fded72a189433d283219da1b986cfad1e"
+      "bytes": 8205,
+      "sha256": "2f72e6e02db179fb7c1b7823e544e2e87741b8b2a50c7ae8268d396ef26fcc00"
     },
     {
       "path": "docs/evidence/AUTHORING_2C_FRESH_AI_TASKS_V1.json",

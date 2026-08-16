@@ -1,24 +1,25 @@
-# Ordinary-chat authoring protocol V1
+# Протокол создания ботов в обычном диалоге V1
 
 Статус: `CURRENT / AUTHORING-2B`
 Версия: `1`
 
-Этот protocol предназначен для ordinary capable AI chat. Agent/tools mode может
-автоматизировать те же шаги, но не добавляет source semantics или authority.
+Этот протокол предназначен для обычного диалога с ИИ. Режим агента или
+инструментов может автоматизировать те же шаги, но не добавляет семантику
+исходного описания или полномочия.
 
 ## Workflow
 
-1. Преобразуйте business requirements в stable logical keys, canonical
-   DataFields, static resources/content и independent acceptance scenarios.
-2. Соберите один strict JSON `SayDoneAuthoringBundleV1`: `botSpec`,
+1. Преобразуйте требования к боту в стабильные логические ключи, канонические
+   DataFields, статические ресурсы/контент и независимые acceptance scenarios.
+2. Соберите один корректный JSON `SayDoneAuthoringBundleV1`: `botSpec`,
    `dataFields`, `acceptance`, `qualification`.
 3. Пользователь передаёт Bundle в canonical import/preview boundary.
-4. При `confirmation_ready` дальнейшее confirmation/import принадлежит trusted
-   SayDone boundary; AI не выполняет его сама.
+4. При `confirmation_ready` дальнейшее подтверждение/import относится к trusted
+   границе SayDone; ИИ не выполняет его сама.
 5. При `RepairReportV1` найдите `code` и public `/artifacts/...` `path`, измените
    только соответствующий source и создайте маленький `SayDoneAuthoringPatchV1`.
-6. Patch обязан содержать exact `baseRevision` и `baseChecksum` текущего
-   snapshot. Повторяйте preview до success; stale Patch fail-closed.
+6. Patch обязан содержать точные `baseRevision` и `baseChecksum` текущего
+   описания. Повторяйте проверку до успеха; устаревший Patch отклоняется.
 
 ## Required source separation
 

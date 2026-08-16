@@ -1,29 +1,30 @@
 # SayDone AI authoring: start here
 
-Статус: `CURRENT / AUTHORING-2A`
+Статус: `ТЕКУЩИЙ / AUTHORING-2A`
 Версия набора: `1`
 
-Создайте self-contained JSON `SayDoneAuthoringBundleV1` для бота, а не
-`BotPackageV1`, runtime state/rule/effect IDs или Telegram payload. Передавайте
-Bundle в canonical preview. Если preview вернул `RepairReportV1`, исправьте только
-указанный source path и сформируйте маленький checksum/revision-bound
-`SayDoneAuthoringPatchV1`; Patch снова проходит весь preview.
+Подготовьте самостоятельный JSON `SayDoneAuthoringBundleV1` для бота, а не
+`BotPackageV1`, идентификаторы состояния/правила/effect времени выполнения или
+Telegram payload. Передайте Bundle в каноническую проверку. Если она вернула
+`RepairReportV1`, исправьте только указанный путь исходного описания и создайте
+небольшой `SayDoneAuthoringPatchV1`, привязанный к checksum/revision; Patch снова
+проходит всю проверку.
 
-## Bounded reading path
+## Ограниченный путь чтения
 
-1. Откройте [manifest](AI_AUTHORING_MANIFEST_V1.json) и выберите только нужный
-   topic, contract и executable example.
-2. Прочитайте [chat protocol](AUTHORING_CHAT_PROTOCOL_V1.md), затем concise
-   [primitive guide](AUTHORING_PRIMITIVES_V1.md) для выбранной topic.
-3. Для Bundle, Patch, preview и RepairReport используйте
-   [Bundle/Patch contract](AUTHORING_BUNDLE_PATCH_V1.md).
-4. Для доступных public operations/events смотрите
-   [capability index](AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md); для repair-кодов —
-   [error catalog](AI_PUBLIC_ERROR_CATALOG_V1.md).
+1. Откройте [manifest](AI_AUTHORING_MANIFEST_V1.json) и выберите только нужную
+   тему, контракт и исполняемый пример.
+2. Прочитайте [протокол диалога](AUTHORING_CHAT_PROTOCOL_V1.md), затем краткое
+   [описание примитивов](AUTHORING_PRIMITIVES_V1.md) для выбранной темы.
+3. Для Bundle, Patch, проверки и RepairReport используйте
+   [контракт Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md).
+4. Для доступных операций и событий смотрите
+   [индекс возможностей](AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md); для кодов
+   исправления — [каталог ошибок](AI_PUBLIC_ERROR_CATALOG_V1.md).
 
-Откройте дополнительные architecture contracts только если manifest связывает их
-с выбранной primitive. Фиксируйте список прочитанных файлов/байтов у внешней
-qualification; fresh-AI qualification принадлежит AUTHORING-2C.
+Открывайте дополнительные архитектурные контракты, только если manifest связывает
+их с выбранным примитивом. Для внешней проверки фиксируйте список прочитанных
+файлов и байтов; fresh-AI qualification относится к AUTHORING-2C.
 
 ## Что нельзя генерировать
 

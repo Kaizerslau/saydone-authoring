@@ -1,11 +1,12 @@
-# Authoring primitives V1
+# Примитивы описания бота V1
 
 Статус: `CURRENT / AUTHORING-2B`
 
-Use this page to choose a relevant contract, not as a replacement for one. Each
-item below is already implemented and has a bounded public source form.
+Используйте эту страницу, чтобы выбрать нужный контракт, а не вместо контракта.
+Каждый пункт ниже уже реализован и имеет ограниченную публичную форму исходного
+описания.
 
-## Structure and data
+## Структура и данные
 
 - `entry` is the ordinary logical START target. `blocks` have stable logical
   keys; `saveState:true` is a persistent user position, while `saveState:false`
@@ -18,7 +19,7 @@ item below is already implemented and has a bounded public source form.
   Keys never shadow by scope. Types/formats/constraints are in the
   [DataFields contract](../architecture/BUSINESS_DATA_FIELDS_V1.md).
 
-## Logic and inputs
+## Логика и ввод данных
 
 - Conditions are pure structured predicates; they cannot mutate or call services.
 - A `ruleSets` table is ordered `first_match`, writes one typed writable field and
@@ -31,10 +32,10 @@ item below is already implemented and has a bounded public source form.
   Validation/retry/exhaustion/timeout are bounded. Specific alias/`on.text`
   routing precedes generic input (D-054).
 
-Exact shapes: [BotSpec](BOT_SPEC_V1_CONTRACT.md) and
-[bounded language](../architecture/AUTHORING_LANGUAGE_V1.md).
+Точные формы: [BotSpec](BOT_SPEC_V1_CONTRACT.md) и
+[ограниченный язык](../architecture/AUTHORING_LANGUAGE_V1.md).
 
-## Content, messages and schedules
+## Контент, сообщения и расписания
 
 - Content uses stable logical keys and `plain`, `telegram_html` safe subset or
   `telegram_markdown_v2`; registered DataFields render deterministically.
@@ -49,7 +50,7 @@ Exact shapes: [BotSpec](BOT_SPEC_V1_CONTRACT.md) and
 See [content contract](../architecture/CONTENT_VERSIONING_V1.md) and
 [BotSpec](BOT_SPEC_V1_CONTRACT.md).
 
-## HTTP, triggers and modules
+## HTTP, триггеры и модули
 
 - `httpResources` are static controlled HTTPS resources. Credential references
   are configured separately; request/response mappings use DataFields. No raw
