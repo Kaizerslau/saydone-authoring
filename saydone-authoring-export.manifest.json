@@ -1,7 +1,7 @@
 {
   "exportVersion": 1,
   "sourceRepository": "Kaizerslau/saydone-authoring",
-  "sourceCommit": "4aa799631e5e139f94a81a545a45c122cb0112bb",
+  "sourceCommit": "28be94544f7f8bd51d5714fd8774c4b3012bcdd5",
   "files": [
     {
       "path": "docs/architecture/AUTHORING_LANGUAGE_V1.md",
@@ -25,8 +25,8 @@
     },
     {
       "path": "docs/authoring/AI_AUTHORING_MANIFEST_V1.json",
-      "bytes": 5354,
-      "sha256": "c38967f5b12af5c0d4e7f0635e16d37c8929a0aca9776350aee1031e94501a74"
+      "bytes": 5461,
+      "sha256": "4509e1ae2c1f7b6731071e9c15da402116e495678ea59dfa141dd01e25d6f3a6"
     },
     {
       "path": "docs/authoring/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md",
@@ -35,23 +35,23 @@
     },
     {
       "path": "docs/authoring/AI_PUBLIC_ERROR_CATALOG_V1.md",
-      "bytes": 3265,
-      "sha256": "8e49cf2ad1deff78ad0cbe88aedea5212f102cd94c9043088c29efd4a586ac4e"
+      "bytes": 4261,
+      "sha256": "e7fa9014dab4f7f9c150c28ccc60b8029d105729fdfda8bc521c2062b098157c"
     },
     {
       "path": "docs/authoring/AI_START_HERE.md",
-      "bytes": 3089,
-      "sha256": "34172d9fc1855bd70d0d9322ae2c1164bcfc3c9d5e1f3e3c8544acaa4de6c2a9"
+      "bytes": 3388,
+      "sha256": "7ccb8b4bab230b06a606166cc764efe93fdeec47040aee78e508da1f7f767015"
     },
     {
       "path": "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md",
-      "bytes": 8286,
-      "sha256": "3aeaa34877cdfdfce2590e89c6e3a629882c8e0932c296ce86acd5ccfc9e73e1"
+      "bytes": 8576,
+      "sha256": "d794ce1c6a14e1fee2f53e9be7027581571d1f64f56af3b3850b920142557389"
     },
     {
       "path": "docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md",
-      "bytes": 2696,
-      "sha256": "0b069e2a150f64ce5cec7cab83c462905db58054bc0f0f780898c95d6748e47a"
+      "bytes": 4580,
+      "sha256": "452387ab95eac6f79fd1d054b5749cdf3468f79f0ece45e2b08ffbb9cc48c8d2"
     },
     {
       "path": "docs/authoring/AUTHORING_PRIMITIVES_V1.md",
@@ -104,9 +104,14 @@
       "sha256": "2f72e6e02db179fb7c1b7823e544e2e87741b8b2a50c7ae8268d396ef26fcc00"
     },
     {
+      "path": "docs/authoring/PUBLIC_CONTRACT_COMPLETENESS_V1.json",
+      "bytes": 5945,
+      "sha256": "ed7a2be6fef495991c8ded96d45776d0fd353945c3843c2de5d0bade8e24dafd"
+    },
+    {
       "path": "docs/evidence/AUTHORING_2C_FRESH_AI_TASKS_V1.json",
-      "bytes": 3208,
-      "sha256": "20560a1b63432c497d03d5e3276d006e3e08c6af9a581d89fca2b62dcb0cd1e8"
+      "bytes": 3361,
+      "sha256": "357afb08e50a62d8476a7f0bbe0d63cf7dcdbe0613b048a60bcc9c39ceaa32e9"
     },
     {
       "path": "llms.txt",

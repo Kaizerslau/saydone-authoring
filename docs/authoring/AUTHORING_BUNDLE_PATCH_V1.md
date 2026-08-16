@@ -96,8 +96,11 @@ MechanicalProofPlan и ScenarioV2 lowering. Preview не изменяет BotPac
 compile. Любой `failed`/`blocked` gate прекращает цепочку, отмечает remaining
 gates `not_run`, не создаёт confirmation и возвращает `RepairReportV1` со stable
 code, public `/artifacts/...` path, severity, redacted message, bounded context,
-affected gate и exact source revision/checksum. Stack, internal absolute path,
-SQL, secret и environment dump не возвращаются.
+affected gate, `documentationTopic` и exact source revision/checksum.
+`documentationTopic` — один ключ существующей темы manifest для выбора already
+published contract/example; он не задаёт новую семантику, не содержит correct
+value и не заменяет code/path. Stack, internal absolute path, SQL, secret и
+environment dump не возвращаются.
 
 Успешный result содержит canonical package/artifact checksums, SourceMap,
 MechanicalProofPlan, стабильные summaries всех gates, compatibility issues,

@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "status": "current",
-  "documentationVersion": "1.0.0",
+  "documentationVersion": "1.1.0",
   "workflow": [
     "SayDoneAuthoringBundleV1",
     "preview",
@@ -40,11 +40,12 @@
     "capabilityIndex": "docs/authoring/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md",
     "errorCatalog": "docs/authoring/AI_PUBLIC_ERROR_CATALOG_V1.md",
     "examples": "docs/authoring/examples/README.md",
+    "completeness": "docs/authoring/PUBLIC_CONTRACT_COMPLETENESS_V1.json",
     "readingProtocol": "docs/authoring/AI_START_HERE.md"
   },
   "examples": [
     { "id": "simple_menu", "path": "docs/authoring/examples/simple-menu.bundle.json", "kind": "standalone_bundle", "topics": ["structure", "messaging"] },
-    { "id": "lead_application", "path": "docs/authoring/examples/lead-application.bundle.json", "kind": "standalone_bundle", "topics": ["data", "logic", "inputs", "content", "http", "triggers"] },
+    { "id": "lead_application", "path": "docs/authoring/examples/lead-application.bundle.json", "kind": "standalone_bundle", "topics": ["data", "logic", "inputs", "content", "http", "triggers", "acceptance"] },
     { "id": "lead_application_patch", "path": "docs/authoring/examples/lead-application.patch.template.json", "kind": "bound_fragment", "topics": ["bundle_patch"] },
     { "id": "schedule_cancel", "path": "docs/authoring/examples/schedule-cancel.fragment.json", "kind": "bound_fragment", "topics": ["structure", "messaging"] }
   ],
@@ -57,7 +58,7 @@
     { "topic": "content", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/architecture/CONTENT_VERSIONING_V1.md"], "examples": ["lead_application"] },
     { "topic": "http", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/architecture/HTTP_EGRESS_V1.md"], "examples": ["lead_application"] },
     { "topic": "triggers", "contracts": ["docs/authoring/AUTHORING_PRIMITIVES_V1.md", "docs/authoring/BOT_SPEC_V1_CONTRACT.md"], "examples": ["lead_application"] },
-    { "topic": "acceptance", "contracts": ["docs/authoring/BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md"], "examples": [] },
+    { "topic": "acceptance", "contracts": ["docs/authoring/BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md"], "examples": ["lead_application"] },
     { "topic": "bundle_patch", "contracts": ["docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md", "docs/authoring/AUTHORING_BUNDLE_PATCH_V1.md"], "examples": ["lead_application_patch"] }
   ],
   "dependencies": ["D-052", "D-053", "D-074", "D-075", "D-078", "D-079", "D-080", "D-083"],

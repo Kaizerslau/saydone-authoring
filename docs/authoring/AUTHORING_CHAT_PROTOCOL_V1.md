@@ -19,7 +19,29 @@
 5. При `RepairReportV1` найдите `code` и public `/artifacts/...` `path`, измените
    только соответствующий source и создайте маленький `SayDoneAuthoringPatchV1`.
 6. Patch обязан содержать точные `baseRevision` и `baseChecksum` текущего
-   описания. Повторяйте проверку до успеха; устаревший Patch отклоняется.
+   описания. Для одного внешнего кейса допускаются initial ответ и не более двух
+   циклов Patch-исправления. После второго неуспешного Patch внешний прогон
+   останавливается для внутреннего разбора; устаревший Patch отклоняется.
+
+## RepairReport и маршрут исправления
+
+`RepairReportV1` сообщает `code`, public source `path`, `affectedGate` и
+`documentationTopic`. Последнее поле — только навигация к уже опубликованной
+теме manifest, а не второй язык, новая семантика или готовый ответ. По нему
+откройте существующий контракт и исполняемый пример, затем создайте минимальный
+Patch указанного типа и exact binding. Матрица примитив → пример → код ошибки →
+тип Patch публикуется в
+[матрице полноты](PUBLIC_CONTRACT_COMPLETENESS_V1.json).
+
+## Acceptance и coverage без внутренних идентификаторов
+
+Каждый достижимый авторский путь должен иметь независимый acceptance scenario:
+для start/command/text/input/fallback описывайте logical block, ожидаемое
+сообщение, DataField или наблюдаемое действие. Coverage сверяет скомпилированный
+граф, но RepairReport возвращает только authored source path; generated runtime
+state/rule/effect IDs не являются частью authoring source и не нужны для
+исправления. Standalone примеры в manifest проходят путь source → compile →
+inspect → validate → ScenarioV2 → coverage → qualification.
 
 ## Required source separation
 
