@@ -19,7 +19,10 @@ source rule remains the linked canonical contract.
 | `datafield.value_type` | DataField value path | Literal/reference type does not match the declared canonical DataField; correct the declared source value without coercion. | [DataFields](../architecture/BUSINESS_DATA_FIELDS_V1.md) |
 | `input.field_type_mismatch` | typed input path | Input capture type is incompatible with the destination canonical DataField; use the matching declared input/value type. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
 | `botspec.condition_shape` | condition path | Condition is not a bounded documented Conditions AST shape; use the published typed form. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
-| `subflow.call_indirect_reference` | subflow call path | Subflow target must be one static logical key, not a dynamic reference. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
+| `subflow.call_indirect_reference` | caller block `next` path | A call-marker block must be reached directly from an event, fallback, button or schedule route; do not route to it through `next`. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
+| `subflow.call_invalid_continuation` | `call.then` | `then` must name an ordinary stateful caller block, not a call marker, subflow result or `saveState: false` structural block. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
+| `subflow.call_button_set` | choice button call path | A button that routes directly to a call marker cannot also save a DataField; use an explicit ordinary block before the call. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
+| `subflow.typed_input_structural_target` | typed input route | A typed input must finish capture/retry mutation in an ordinary block; its `run`, retry, timeout and exhausted routes cannot call or return directly. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
 | `acceptance.unknown_block` | acceptance path | Acceptance refers to no logical block; use an existing authored logical block id. | [Acceptance](BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md) |
 | `compiler.lowering_ambiguous_text` | source text route | Multiple same-precedence text routes overlap; make exact routes unambiguous. | [Compiler](BOT_AUTHORING_COMPILER_CONTRACT_V1.md) |
 | `content.variable_unregistered` | content variable path | Placeholder is not a registered canonical DataField; register it or remove the placeholder. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
@@ -27,4 +30,4 @@ source rule remains the linked canonical contract.
 | `transform.input_type` | transform path | Transform input does not match the documented typed operation; change the explicit source value or operation. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
 | `ruleset.unknown_reference` | RuleSet path | RuleSet reference is missing from the static catalog; use a declared static key. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
 | `trigger.start_payload` | start payload path | Start payload is not a bounded static exact value; use one valid static exact route. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `http.endpoint` | HTTP resource path | Endpoint violates the bounded static HTTPS resource contract; use a valid declared HTTPS endpoint. | [HTTP egress](../architecture/HTTP_EGRESS_V1.md) |
+| `http.endpoint` | HTTP resource path | Endpoint must be a raw absolute public `https:` JSON string (for example `https://crm.example.test/v1/applications`), not Markdown/link syntax, credentials, fragment, direct IP or local hostname. | [HTTP egress](../architecture/HTTP_EGRESS_V1.md) |

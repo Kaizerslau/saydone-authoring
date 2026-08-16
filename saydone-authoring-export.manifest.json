@@ -1,7 +1,7 @@
 {
   "exportVersion": 1,
   "sourceRepository": "Kaizerslau/saydone-authoring",
-  "sourceCommit": "28be94544f7f8bd51d5714fd8774c4b3012bcdd5",
+  "sourceCommit": "ea87bb87531ab6c70d7b6a50262d05b849f54e38",
   "files": [
     {
       "path": "docs/architecture/AUTHORING_LANGUAGE_V1.md",
@@ -26,7 +26,7 @@
     {
       "path": "docs/authoring/AI_AUTHORING_MANIFEST_V1.json",
       "bytes": 5461,
-      "sha256": "4509e1ae2c1f7b6731071e9c15da402116e495678ea59dfa141dd01e25d6f3a6"
+      "sha256": "e9e04b0e791523d16ddd605933b44edcd88d3c02c0f0737fa581dacafb10b132"
     },
     {
       "path": "docs/authoring/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md",
@@ -35,8 +35,8 @@
     },
     {
       "path": "docs/authoring/AI_PUBLIC_ERROR_CATALOG_V1.md",
-      "bytes": 4261,
-      "sha256": "e7fa9014dab4f7f9c150c28ccc60b8029d105729fdfda8bc521c2062b098157c"
+      "bytes": 5098,
+      "sha256": "a62a15e61a4e756366c74dd0aca2ec9fd26d13b6394eabbe1d13c681d47a68f9"
     },
     {
       "path": "docs/authoring/AI_START_HERE.md",
