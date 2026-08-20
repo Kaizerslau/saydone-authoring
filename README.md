@@ -1,15 +1,9 @@
-# SayDone authoring kit
+# Набор материалов SayDone для authoring
 
-Это публичный, AI-readable набор контрактов и примеров для authoring
-декларативных SayDone bot artifacts. Main implementation repository остаётся
-authoritative source; этот repository — только детерминированный public snapshot.
+Публичный набор для создания декларативного исходного JSON бота SayDone. Начните
+с [llms.txt](llms.txt) или [краткого пути](docs/authoring/AI_START_HERE.md), затем
+выберите точный раздел [справочника](docs/authoring/reference/README.md).
 
-Начните с [AI_START_HERE.md](docs/authoring/AI_START_HERE.md) и
-[llms.txt](llms.txt). Bundle/Patch, примеры, capability index и public error
-catalog расположены в `docs/authoring/`.
-
-Канонический домен проекта — `saydone.space`. Это planned public domain; этот
-документ не утверждает, что DNS, сайт или production endpoint уже активны.
-
-В snapshot не публикуются implementation source, tests, plans, `PROJECT_STATE`,
-`AGENTS`, SQL/migrations, deployment internals, private endpoints или credentials.
+Bundle и Patch проходят каноническую проверку SayDone; public repository не
+содержит исходный код платформы, tests, plans, credentials, private endpoints,
+SQL или deployment operations.

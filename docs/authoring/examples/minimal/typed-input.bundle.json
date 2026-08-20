@@ -1,0 +1,97 @@
+{
+  "bundleVersion": 1,
+  "artifacts": {
+    "botSpec": {
+      "specVersion": 1,
+      "bot": {
+        "name": "Возраст",
+        "defaultLocale": "ru"
+      },
+      "entry": "ask",
+      "blocks": {
+        "ask": {
+          "actions": [
+            {
+              "type": "send",
+              "text": "Возраст"
+            }
+          ],
+          "input": {
+            "type": "number",
+            "save": "age",
+            "run": "done"
+          }
+        },
+        "done": {
+          "actions": [
+            {
+              "type": "send",
+              "text": "Готово"
+            }
+          ]
+        }
+      }
+    },
+    "dataFields": {
+      "dataFieldCatalogVersion": 1,
+      "fields": [
+        {
+          "key": "age",
+          "label": "Возраст",
+          "scope": "flow",
+          "type": "number",
+          "min": 0,
+          "max": 120,
+          "visibility": "standard"
+        }
+      ]
+    },
+    "acceptance": {
+      "acceptanceVersion": 1,
+      "scenarios": [
+        {
+          "key": "number",
+          "description": "Типизированный ввод сохраняет число.",
+          "steps": [
+            {
+              "type": "start"
+            },
+            {
+              "type": "processEffects"
+            },
+            {
+              "type": "text",
+              "text": "20"
+            },
+            {
+              "type": "expectBlock",
+              "block": "done"
+            },
+            {
+              "type": "processEffects"
+            },
+            {
+              "type": "expectNoPendingWork"
+            }
+          ]
+        }
+      ]
+    },
+    "qualification": {
+      "contractVersion": 1,
+      "qualificationKey": "typed-input-v1",
+      "requirements": [
+        {
+          "id": "number",
+          "scenarioKey": "number",
+          "requiredAssertions": [
+            {
+              "type": "assert_no_pending_work",
+              "match": {}
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,33 +1,34 @@
-# Public repair/error catalog V1
+# Публичный каталог ошибок и исправлений V1
 
-Статус: `CURRENT / stable bounded codes only`
+Статус: `CURRENT / только стабильные ограниченные коды`
 
-`RepairReportV1` returns code, source path, severity, affected preview gate and
-redacted bounded context. Do not copy raw exceptions into a Patch. The exact
-source rule remains the linked canonical contract.
+`RepairReportV1` возвращает код, путь исходного описания, серьёзность, затронутую
+стадию проверки и ограниченный очищенный безопасный контекст. Не копируйте исходные
+исключения в `Patch`. Точное правило исходного описания остаётся в связанном каноническом
+контракте.
 
-| Code | Domain/path | Meaning and safe repair | Contract |
+| Код | Область / путь | Значение и безопасное исправление | Справочник |
 |---|---|---|---|
-| `authoring.bundle_version` | Bundle root | `bundleVersion` is unsupported; use version `1`. | [Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md) |
-| `authoring.bundle_unknown_artifact` | `/artifacts` | Bundle contains an unsupported artifact; keep only the documented canonical artifacts. | [Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md) |
-| `authoring.source_forbidden_field` | source path | Source attempted authority or forbidden material; remove it and let SayDone supply trusted context. | [Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md) |
-| `authoring.source_plaintext_secret` | source path | Source contains a credential-like value; replace it with the allowed static resource reference where applicable. | [Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md) |
-| `authoring.patch_stale_base` | `/baseRevision` | Patch does not bind the current snapshot; obtain its current revision/checksum and regenerate the small Patch. | [Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md) |
-| `authoring.patch_duplicate_target` | `/changes` | More than one change targets the same source item; emit one unambiguous change. | [Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md) |
-| `botspec.schema_unknown_property` | BotSpec path | Unknown source property; remove it or use the exact documented primitive. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `botspec.capability_unknown_event` | `/blocks/.../on` | `on.event` is not a public module result event; use a supported event/capability or another source primitive. | [Capability index](AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md) |
-| `datafield.value_type` | DataField value path | Literal/reference type does not match the declared canonical DataField; correct the declared source value without coercion. | [DataFields](../architecture/BUSINESS_DATA_FIELDS_V1.md) |
-| `input.field_type_mismatch` | typed input path | Input capture type is incompatible with the destination canonical DataField; use the matching declared input/value type. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `botspec.condition_shape` | condition path | Condition is not a bounded documented Conditions AST shape; use the published typed form. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
-| `subflow.call_indirect_reference` | caller block `next` path | A call-marker block must be reached directly from an event, fallback, button or schedule route; do not route to it through `next`. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `subflow.call_invalid_continuation` | `call.then` | `then` must name an ordinary stateful caller block, not a call marker, subflow result or `saveState: false` structural block. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `subflow.call_button_set` | choice button call path | A button that routes directly to a call marker cannot also save a DataField; use an explicit ordinary block before the call. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `subflow.typed_input_structural_target` | typed input route | A typed input must finish capture/retry mutation in an ordinary block; its `run`, retry, timeout and exhausted routes cannot call or return directly. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `acceptance.unknown_block` | acceptance path | Acceptance refers to no logical block; use an existing authored logical block id. | [Acceptance](BOT_ACCEPTANCE_SPEC_V1_DIRECTION.md) |
-| `compiler.lowering_ambiguous_text` | source text route | Multiple same-precedence text routes overlap; make exact routes unambiguous. | [Compiler](BOT_AUTHORING_COMPILER_CONTRACT_V1.md) |
-| `content.variable_unregistered` | content variable path | Placeholder is not a registered canonical DataField; register it or remove the placeholder. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `transform.unknown_operation` | transform path | Transform is outside the bounded V1 catalog; choose a documented SafeTransform. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
-| `transform.input_type` | transform path | Transform input does not match the documented typed operation; change the explicit source value or operation. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
-| `ruleset.unknown_reference` | RuleSet path | RuleSet reference is missing from the static catalog; use a declared static key. | [Language](../architecture/AUTHORING_LANGUAGE_V1.md) |
-| `trigger.start_payload` | start payload path | Start payload is not a bounded static exact value; use one valid static exact route. | [BotSpec](BOT_SPEC_V1_CONTRACT.md) |
-| `http.endpoint` | HTTP resource path | Endpoint must be a raw absolute public `https:` JSON string (for example `https://crm.example.test/v1/applications`), not Markdown/link syntax, credentials, fragment, direct IP or local hostname. | [HTTP egress](../architecture/HTTP_EGRESS_V1.md) |
+| `authoring.bundle_version` | Корень `Bundle` | `bundleVersion` не поддерживается; используйте версию `1`. | [Bundle/Patch](reference/bundle-patch-repair.md) |
+| `authoring.bundle_unknown_artifact` | `/artifacts` | `Bundle` содержит неподдерживаемый артефакт; оставьте только документированные канонические артефакты. | [Bundle/Patch](reference/bundle-patch-repair.md) |
+| `authoring.source_forbidden_field` | Путь исходного описания | Исходное описание пытается передать полномочия или запрещённый материал; удалите его — SayDone добавляет доверенный контекст самостоятельно. | [Bundle/Patch](reference/bundle-patch-repair.md) |
+| `authoring.source_plaintext_secret` | Путь исходного описания | Исходное описание содержит значение, похожее на учётные данные; где применимо, замените его допустимой статической ссылкой на настроенный ресурс. | [Bundle/Patch](reference/bundle-patch-repair.md) |
+| `authoring.patch_stale_base` | `/baseRevision` | `Patch` не связан с текущим снимком; получите его версию и контрольную сумму, затем заново создайте небольшой `Patch`. | [Bundle/Patch](reference/bundle-patch-repair.md) |
+| `authoring.patch_duplicate_target` | `/changes` | Несколько элементов `changes` нацелены на один элемент исходного описания; верните одно однозначное изменение. | [Bundle/Patch](reference/bundle-patch-repair.md) |
+| `botspec.schema_unknown_property` | Путь `BotSpec` | Неизвестное свойство исходного описания; удалите его или используйте точную документированную конструкцию. | [Структура](reference/structure.md) |
+| `botspec.capability_unknown_event` | `/blocks/.../on` | `on.event` не является публичным событием результата модуля; используйте поддерживаемое событие, возможность или другую конструкцию исходного описания. | [Индекс возможностей](AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md) |
+| `datafield.value_type` | Путь значения `DataField` | Тип литерала или ссылки не совпадает с объявленным каноническим `DataField`; исправьте значение исходного описания без неявного преобразования. | [DataFields](reference/data-fields.md) |
+| `input.field_type_mismatch` | Путь типизированного ввода | Типизированный ввод несовместим с целевым каноническим `DataField`; используйте совпадающие объявленные типы ввода и значения. | [Ввод](reference/inputs-and-routing.md) |
+| `botspec.condition_shape` | Путь `Condition` | `Condition` не соответствует ограниченной документированной форме `Conditions` AST; используйте опубликованную типизированную форму. | [Логика](reference/logic.md) |
+| `subflow.call_indirect_reference` | Путь `next` вызывающего блока | Блок-маркер вызова должен достигаться напрямую из маршрута события, `fallback`, кнопки или отложенного действия; не направляйте в него через `next`. | [Логика](reference/logic.md) |
+| `subflow.call_invalid_continuation` | `call.then` | `then` должен называть обычный вызывающий блок с сохраняемым состоянием, а не маркер вызова, результат подмаршрута или структурный блок с `saveState: false`. | [Логика](reference/logic.md) |
+| `subflow.call_button_set` | Путь вызова кнопки выбора | Кнопка, направляющая прямо в маркер вызова, не может одновременно сохранять `DataField`; используйте явный обычный блок до вызова. | [Логика](reference/logic.md) |
+| `subflow.typed_input_structural_target` | Маршрут типизированного ввода | Типизированный ввод должен завершать сохранение, повтор или изменение в обычном блоке; его маршруты `run`, повтора, тайм-аута и исчерпания не могут напрямую вызывать или возвращать. | [Ввод](reference/inputs-and-routing.md) |
+| `acceptance.unknown_block` | Путь приёмочного сценария | Приёмочный сценарий ссылается на отсутствующий логический блок; используйте существующий авторский идентификатор логического блока. | [Приёмка](reference/acceptance-and-qualification.md) |
+| `compiler.lowering_ambiguous_text` | Маршрут исходного текста | Несколько текстовых маршрутов одного приоритета пересекаются; сделайте точные маршруты однозначными. | [Ввод](reference/inputs-and-routing.md) |
+| `content.variable_unregistered` | Путь переменной `content` | Заполнитель не является зарегистрированным каноническим `DataField`; зарегистрируйте его или удалите. | [Контент](reference/content-and-actions.md) |
+| `transform.unknown_operation` | Путь преобразования | Преобразование отсутствует в ограниченном каталоге V1; выберите документированный `SafeTransform`. | [Логика](reference/logic.md) |
+| `transform.input_type` | Путь преобразования | Ввод преобразования не соответствует документированной типизированной операции; измените явное значение исходного описания или операцию. | [Логика](reference/logic.md) |
+| `ruleset.unknown_reference` | Путь `RuleSet` | Ссылка `RuleSet` отсутствует в статическом каталоге; используйте объявленный статический ключ. | [Логика](reference/logic.md) |
+| `trigger.start_payload` | Путь параметра запуска | Значение параметра запуска не является ограниченным точным статическим значением; используйте один допустимый точный статический маршрут. | [Ввод](reference/inputs-and-routing.md) |
+| `http.endpoint` | Путь HTTP-ресурса | `endpoint` должен быть обычной JSON-строкой с абсолютным публичным адресом `https:` (например, `https://crm.example.test/v1/applications`), а не синтаксисом Markdown-ссылки, учётными данными, фрагментом, прямым IP-адресом или локальным именем узла. | [HTTP](reference/http.md) |

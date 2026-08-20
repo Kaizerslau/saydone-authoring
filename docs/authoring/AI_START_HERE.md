@@ -1,50 +1,35 @@
-# SayDone AI authoring: start here
+# Начало работы с SayDone
 
-Статус: `ТЕКУЩИЙ / AUTHORING-2A`
-Версия набора: `1`
+Создайте один JSON `SayDoneAuthoringBundleV1` для нового бота или один небольшой
+`SayDoneAuthoringPatchV1` для исправления. Не создавайте `BotPackageV1` вручную.
 
-Подготовьте самостоятельный JSON `SayDoneAuthoringBundleV1` для бота, а не
-`BotPackageV1`, идентификаторы состояния/правила/effect времени выполнения или
-Telegram payload. Передайте Bundle в каноническую проверку. Если она вернула
-`RepairReportV1`, исправьте только указанный путь исходного описания и создайте
-небольшой `SayDoneAuthoringPatchV1`, привязанный к checksum/revision; Patch снова
-проходит всю проверку.
+## Если создаёте `Bundle`
 
-## Ограниченный путь чтения
+1. Откройте [карту материалов](AI_AUTHORING_MANIFEST_V1.json) и выберите тему.
+2. Прочитайте только нужный раздел [справочника](reference/README.md) и его
+   пример.
+3. Верните самостоятельный JSON `SayDoneAuthoringBundleV1` без Markdown.
+4. Передайте JSON в каноническую проверку SayDone.
 
-1. Откройте [manifest](AI_AUTHORING_MANIFEST_V1.json) и выберите только нужную
-   тему, контракт и исполняемый пример.
-2. Прочитайте [протокол диалога](AUTHORING_CHAT_PROTOCOL_V1.md), затем краткое
-   [описание примитивов](AUTHORING_PRIMITIVES_V1.md) для выбранной темы.
-3. Для Bundle, Patch, проверки и RepairReport используйте
-   [контракт Bundle/Patch](AUTHORING_BUNDLE_PATCH_V1.md).
-4. Для доступных операций и событий смотрите
-   [индекс возможностей](AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md); для кодов
-   исправления — [каталог ошибок](AI_PUBLIC_ERROR_CATALOG_V1.md).
-5. Для проверки, что выбранный примитив имеет syntax, example, диагностический
-   код и bounded Patch-маршрут, используйте
-   [машиночитаемую матрицу полноты](PUBLIC_CONTRACT_COMPLETENESS_V1.json).
+## Если исправляете `RepairReportV1`
 
-Открывайте дополнительные архитектурные контракты, только если manifest связывает
-их с выбранным примитивом. Для внешней проверки фиксируйте список прочитанных
-файлов и байтов; fresh-AI qualification относится к AUTHORING-2C.
+1. Возьмите код, путь исходного описания, `sourceRevision` и `sourceChecksum` только из
+   полученного `RepairReportV1`.
+2. Откройте [каталог ошибок](AI_PUBLIC_ERROR_CATALOG_V1.md) и нужный раздел
+   [справочника](reference/README.md).
+3. Верните один минимальный `SayDoneAuthoringPatchV1` без Markdown.
+4. Повторно передайте `Patch` в каноническую проверку. Не заменяйте весь `Bundle` без необходимости.
 
-## Что нельзя генерировать
+## Граница исходного описания
 
-- generated state, rule, effect, callback или runtime IDs;
-- database IDs, SQL, secrets, credential values, provider payload/JSON или
-  Telegram `callback_data`;
-- JS, eval, arbitrary expressions/templates, raw HTTP или deployment authority;
-- ручную модификацию compiled `BotPackageV1` либо injection scenarios после
-  canonical compiler.
+Используйте статические логические ключи, объявленные `DataField` и
+зарегистрированные операции. Не включайте сгенерированные идентификаторы
+состояний, правил, эффектов и обратных вызовов, идентификаторы базы данных,
+`callback_data`, JSON поставщика, значения учётных данных, секретные значения,
+SQL, JS/eval, произвольные выражения, прямой HTTP или полномочия развёртывания.
+Для HTTP объявите `httpResources` и вызывайте зарегистрированную `HTTP_REQUEST`;
+доверенные сведения об участнике, подтверждение и жизненный цикл добавляет SayDone.
 
-Trusted organization/actor identity, lifecycle и confirmation принадлежат
-SayDone, а не authoring source. `RepairReportV1` — static repair diagnostic;
-он не заменяет runtime `ExecutionTraceV1`.
-
-## Schema boundary
-
-Полная JSON Schema для Bundle/Patch/BotSpec/Acceptance намеренно не публикуется:
-canonical strict parser и versioned contracts ниже authoritative. Это исключает
-ложную совместимость с unknown fields, duplicate JSON keys и source-level
-semantic validation. Manifest явно фиксирует каждый такой статус.
+Для предварительной проверки формы используйте [структурные JSON Schema](schemas/README.md)
+нужного артефакта. Прохождение схемы не заменяет каноническую проверку SayDone:
+она по-прежнему выполняет строгий разбор исходного JSON и полную семантическую проверку.

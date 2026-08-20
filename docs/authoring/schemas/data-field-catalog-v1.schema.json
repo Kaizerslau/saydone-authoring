@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:saydone:authoring:data-field-catalog-v1",
+  "title": "DataFieldCatalogV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "dataFieldCatalogVersion",
+    "fields"
+  ],
+  "properties": {
+    "dataFieldCatalogVersion": {
+      "const": 1
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[a-z][a-z0-9_]*$",
+                "not": {
+                  "enum": [
+                    "__proto__",
+                    "prototype",
+                    "constructor"
+                  ]
+                },
+                "maxLength": 64
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": ".*\\S.*"
+              },
+              "description": {
+                "type": "string"
+              },
+              "scope": {
+                "enum": [
+                  "flow",
+                  "user",
+                  "bot",
+                  "system"
+                ]
+              },
+              "type": {
+                "enum": [
+                  "text",
+                  "number",
+                  "boolean",
+                  "date",
+                  "datetime"
+                ]
+              },
+              "visibility": {
+                "enum": [
+                  "standard",
+                  "technical",
+                  "hidden"
+                ]
+              },
+              "format": {
+                "enum": [
+                  "phone",
+                  "email",
+                  "date",
+                  "datetime"
+                ]
+              },
+              "allowedValues": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                }
+              },
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              },
+              "defaultValue": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              },
+              "resolver": {
+                "const": "event_occurred_at"
+              }
+            },
+            "required": [
+              "key",
+              "label",
+              "scope",
+              "type",
+              "visibility"
+            ]
+          },
+          {
+            "if": {
+              "properties": {
+                "scope": {
+                  "const": "bot"
+                }
+              },
+              "required": [
+                "scope"
+              ]
+            },
+            "then": {
+              "required": [
+                "defaultValue"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "defaultValue"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "scope": {
+                  "const": "system"
+                }
+              },
+              "required": [
+                "scope"
+              ]
+            },
+            "then": {
+              "required": [
+                "resolver"
+              ],
+              "properties": {
+                "key": {
+                  "const": "current_datetime"
+                },
+                "type": {
+                  "const": "datetime"
+                }
+              }
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "resolver"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "format": {
+                  "enum": [
+                    "phone",
+                    "email"
+                  ]
+                }
+              },
+              "required": [
+                "format"
+              ]
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "const": "text"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "format": {
+                  "const": "date"
+                }
+              },
+              "required": [
+                "format"
+              ]
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "const": "date"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "format": {
+                  "const": "datetime"
+                }
+              },
+              "required": [
+                "format"
+              ]
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "const": "datetime"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "anyOf": [
+                {
+                  "required": [
+                    "min"
+                  ]
+                },
+                {
+                  "required": [
+                    "max"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "const": "number"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

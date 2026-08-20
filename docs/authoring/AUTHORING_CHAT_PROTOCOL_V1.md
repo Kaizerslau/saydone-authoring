@@ -1,70 +1,73 @@
 # Протокол создания ботов в обычном диалоге V1
 
-Статус: `CURRENT / AUTHORING-2B`
+Статус: `CURRENT`
 Версия: `1`
 
 Этот протокол предназначен для обычного диалога с ИИ. Режим агента или
 инструментов может автоматизировать те же шаги, но не добавляет семантику
 исходного описания или полномочия.
 
-## Workflow
+## Порядок работы
 
 1. Преобразуйте требования к боту в стабильные логические ключи, канонические
-   DataFields, статические ресурсы/контент и независимые acceptance scenarios.
+   `DataField`, статические ресурсы и контент, а также независимые приёмочные сценарии.
 2. Соберите один корректный JSON `SayDoneAuthoringBundleV1`: `botSpec`,
    `dataFields`, `acceptance`, `qualification`.
-3. Пользователь передаёт Bundle в canonical import/preview boundary.
-4. При `confirmation_ready` дальнейшее подтверждение/import относится к trusted
+3. Передайте `Bundle` в каноническую проверку SayDone.
+4. При `confirmation_ready` дальнейшее подтверждение и импорт относятся к доверенной
    границе SayDone; ИИ не выполняет его сама.
-5. При `RepairReportV1` найдите `code` и public `/artifacts/...` `path`, измените
-   только соответствующий source и создайте маленький `SayDoneAuthoringPatchV1`.
-6. Patch обязан содержать точные `baseRevision` и `baseChecksum` текущего
-   описания. Для одного внешнего кейса допускаются initial ответ и не более двух
-   циклов Patch-исправления. После второго неуспешного Patch внешний прогон
-   останавливается для внутреннего разбора; устаревший Patch отклоняется.
+5. При `RepairReportV1` найдите `code` и публичный `/artifacts/...` `path`,
+   измените только соответствующее исходное описание и создайте маленький
+   `SayDoneAuthoringPatchV1`.
+6. `Patch` обязан содержать точные `baseRevision` и `baseChecksum` текущего
+   описания. Для одного внешнего случая допускаются первоначальный ответ и не более двух
+   циклов исправления `Patch`. После второго неуспешного `Patch` внешний прогон
+   останавливается для внутреннего разбора; устаревший `Patch` отклоняется.
 
-## RepairReport и маршрут исправления
+## `RepairReportV1` и маршрут исправления
 
-`RepairReportV1` сообщает `code`, public source `path`, `affectedGate` и
+`RepairReportV1` сообщает `code`, публичный `path`, `affectedGate` и
 `documentationTopic`. Последнее поле — только навигация к уже опубликованной
-теме manifest, а не второй язык, новая семантика или готовый ответ. По нему
-откройте существующий контракт и исполняемый пример, затем создайте минимальный
-Patch указанного типа и exact binding. Матрица примитив → пример → код ошибки →
-тип Patch публикуется в
-[матрице полноты](PUBLIC_CONTRACT_COMPLETENESS_V1.json).
+теме манифеста, а не второй язык, новая семантика или готовый ответ. По нему
+откройте соответствующий раздел справочника и исполняемый пример, затем создайте
+минимальный `Patch` указанного типа с точной привязкой. Матрица «конструкция → пример
+→ код ошибки → тип `Patch`» выбирается по [публичному справочнику](reference/README.md) и
+[каталогу ошибок](AI_PUBLIC_ERROR_CATALOG_V1.md).
 
-## Acceptance и coverage без внутренних идентификаторов
+## Приёмочные сценарии и покрытие без внутренних идентификаторов
 
-Каждый достижимый авторский путь должен иметь независимый acceptance scenario:
-для start/command/text/input/fallback описывайте logical block, ожидаемое
-сообщение, DataField или наблюдаемое действие. Coverage сверяет скомпилированный
-граф, но RepairReport возвращает только authored source path; generated runtime
-state/rule/effect IDs не являются частью authoring source и не нужны для
-исправления. Standalone примеры в manifest проходят путь source → compile →
-inspect → validate → ScenarioV2 → coverage → qualification.
+Каждый достижимый авторский путь должен иметь независимый приёмочный сценарий:
+для старта, команды, текста, ввода или `fallback` описывайте логический блок,
+ожидаемое сообщение, `DataField` или наблюдаемое действие. Проверка покрытия
+сверяет скомпилированный граф, но `RepairReportV1` возвращает только путь
+авторского исходного описания; сгенерированные идентификаторы состояний, правил,
+эффектов и обратных вызовов не являются его частью и не нужны для исправления.
+Отдельные примеры из манифеста проходят путь: исходное описание → компиляция →
+проверка состава → валидация → `ScenarioV2` → покрытие → квалификация.
 
-## Required source separation
+## Разделение исходных артефактов
 
-| Need | Canonical source artifact |
+| Что нужно описать | Канонический исходный артефакт |
 |---|---|
-| Interactive behavior, content, static resources | `botSpec` |
-| Typed business values | `dataFields` |
-| Independently observable scenarios | `acceptance` |
-| Business requirements over scenarios | `qualification` |
+| Поведение в диалоге, контент, статические ресурсы | `botSpec` |
+| Типизированные бизнес-значения | `dataFields` |
+| Независимо наблюдаемые сценарии | `acceptance` |
+| Бизнес-требования к сценариям | `qualification` |
 
-Bundle/Patch shape, bounds and trusted handoff are exact only in
-[Bundle/Patch contract](AUTHORING_BUNDLE_PATCH_V1.md). Examples are available
-through the [manifest](AI_AUTHORING_MANIFEST_V1.json).
+Форма и границы `Bundle`/`Patch` описаны в
+[справочнике `Bundle`/`Patch`](reference/bundle-patch-repair.md). Примеры доступны
+через [манифест](AI_AUTHORING_MANIFEST_V1.json).
 
-## AI must not generate
+## Что ИИ не создаёт
 
-- runtime/package/database IDs, generated state/rule/effect/callback keys,
-  checksums or revisions;
-- SQL, credentials, secrets, provider payloads or private endpoints;
-- direct deployment/lifecycle operations;
-- raw `START`, `TEXT_RECEIVED`, `COMMAND_RECEIVED` or `UNKNOWN_INPUT` as public
-  `on.event` DSL.
+- идентификаторы времени выполнения, пакета или базы данных, сгенерированные
+  ключи состояний, правил, эффектов или обратных вызовов, контрольные суммы или версии;
+- SQL, учётные данные, секретные значения, данные поставщиков или закрытые адреса;
+- прямые операции публикации или жизненного цикла;
+- исходные `START`, `TEXT_RECEIVED`, `COMMAND_RECEIVED` или `UNKNOWN_INPUT` как
+  публичный синтаксис `on.event`.
 
-Use static logical keys and only registered public operations/events from the
-[capability index](AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md). `RepairReportV1`
-is static source repair; runtime `ExecutionTraceV1` remains a separate diagnostic.
+Используйте статические логические ключи и только зарегистрированные публичные
+операции и события из [индекса возможностей](AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md).
+`RepairReportV1` — статическая диагностика исходного описания; время выполнения
+`ExecutionTraceV1` остаётся отдельной диагностикой.
