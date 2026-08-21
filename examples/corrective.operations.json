@@ -1,0 +1,1 @@
+{"baseChecksum":"d80fad9eb9e70642d662a6af9d6f38d76ce6fca921c934c2d4836876f42623d4","baseRevision":"patch_632fd531ffe5b60f54eb6aec","operations":[{"blockKey":"summary","equalsAny":["confirm"],"kind":"set_text_route","targetBlockKey":"submit_crm"}],"operationsVersion":1}
