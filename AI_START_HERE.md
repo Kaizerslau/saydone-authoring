@@ -1,6 +1,6 @@
 # SayDoneAuthoringOperationsV1
 
-Верни только один JSON-документ SayDoneAuthoringOperationsV1 без Markdown и пояснений. Точная форма принадлежит schemas/saydone-authoring-operations-v1.schema.json. Краткое назначение операций и code-owned registries находятся в AI_OPERATIONS_CATALOG_V1.json.
+Верни ровно один fenced JSON block: строка ```json, затем один документ SayDoneAuthoringOperationsV1, затем ```. Не добавляй текст до или после блока. Точная форма принадлежит schemas/saydone-authoring-operations-v1.schema.json. Краткое назначение операций и code-owned registries находятся в AI_OPERATIONS_CATALOG_V1.json.
 
 Используй exact baseRevision/baseChecksum, предоставленные owner harness. Initial turn создаёт решение поверх system seed. Repair turn меняет только фактическую ошибку поверх новой exact base и также возвращает Operations, а не Patch или Bundle.
 
