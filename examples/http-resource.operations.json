@@ -1,0 +1,1 @@
+{"baseChecksum":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef","baseRevision":"bundle_0123456789abcdef01234567","operations":[{"endpoint":"https://status.example.test/v1/check","key":"status_lookup","kind":"upsert_http_resource","method":"GET","request":{"query":[]},"responseMappings":[]}],"operationsVersion":1}

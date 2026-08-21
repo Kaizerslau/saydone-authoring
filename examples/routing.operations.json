@@ -1,0 +1,1 @@
+{"baseChecksum":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef","baseRevision":"bundle_0123456789abcdef01234567","operations":[{"key":"welcome","kind":"upsert_block","mode":"stateful","text":"Добро пожаловать."},{"kind":"set_routing","route":"entry","targetBlockKey":"welcome"}],"operationsVersion":1}
