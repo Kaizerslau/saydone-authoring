@@ -4,6 +4,10 @@
 
 Initial prompt SayDone уже содержит exact baseRevision/baseChecksum для system seed. В каждом repair turn SayDone автоматически передаёт точные текущие literal baseRevision и baseChecksum. Перенеси оба значения в новый SayDoneAuthoringOperationsV1 дословно: не вычисляй, не угадывай, не восстанавливай их из предыдущего turn и не используй binding прошлого ответа. Repair turn меняет только фактическую ошибку поверх новой exact base и также возвращает Operations, а не Patch или Bundle.
 
+## Choice → Subflow
+
+Если choice сохраняет business value, запускает reusable Subflow и после его return продолжает путь в logical block, используй `connect_choice_to_subflow`. В `set_choice_block` у этой choice не указывай `nextBlockKey`. Передай только source block/choice, target Subflow, continuation и необходимые business field mappings. Не создавай call block, bridge, return wiring или generated identity: ими полностью владеет SayDone. `set_subflow_call` и choice с `nextBlockKey` остаются поддерживаемым низкоуровневым маршрутом.
+
 Приёмочные сценарии покрывают каждый самостоятельный авторский бизнес-путь. `Button` и его text aliases одной `choice` — эквивалентные представления одного пути; достаточно одного корректного сценария выбора. Явно объявленный command route, включая `/start`, — самостоятельный путь и требует собственного сценария. Не используйте generated runtime IDs для покрытия: canonical preview сам сопоставляет исходную семантику.
 
 Пользователь просто копирует generated prompt в AI, получает JSON code block через Copy code и вставляет JSON обратно в SayDone. Не нужно вручную искать revision/checksum или понимать их происхождение.
