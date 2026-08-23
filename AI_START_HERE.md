@@ -1,6 +1,6 @@
 # SayDoneAuthoringOperationsV1
 
-Верни ровно один fenced JSON block: строка ```json, затем один документ SayDoneAuthoringOperationsV1, затем ```. Не добавляй текст до или после блока. Точная форма принадлежит schemas/saydone-authoring-operations-v1.schema.json. Краткое назначение операций и code-owned registries находятся в AI_OPERATIONS_CATALOG_V1.json.
+Верни ровно один fenced JSON block: строка ```json, затем один документ SayDoneAuthoringOperationsV1, затем ```. Не добавляй текст до или после блока. Точная форма принадлежит schemas/saydone-authoring-operations-v1.schema.json. Краткое назначение операций и code-owned registries находятся в AI_OPERATIONS_CATALOG_V1.json. Точные arity, типы аргументов, result type, null/missing behavior и запрет coercion для каждого `set_safe_transform` опубликованы в AI_SAFE_TRANSFORM_SIGNATURES_V1.json; сверяй operation с этой матрицей до ответа.
 
 Initial prompt SayDone уже содержит exact baseRevision/baseChecksum для system seed. В каждом repair turn SayDone автоматически передаёт точные текущие literal baseRevision и baseChecksum. Перенеси оба значения в новый SayDoneAuthoringOperationsV1 дословно: не вычисляй, не угадывай, не восстанавливай их из предыдущего turn и не используй binding прошлого ответа. Repair turn меняет только фактическую ошибку поверх новой exact base и также возвращает Operations, а не Patch или Bundle.
 
