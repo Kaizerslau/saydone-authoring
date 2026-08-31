@@ -2,181 +2,315 @@
   "exportVersion": 1,
   "sourceRepository": "Kaizerslau/saydone-authoring",
   "sourceCommit": "65efb9edb1b84f5371da85f9731d95ef04105fad",
+  "publicationSource": {
+    "repository": "Kaizerslau/saydone",
+    "commit": "3fac7c79c9b6b4e35edc2d48a63f0e41329888cd"
+  },
   "files": [
     {
-      "path": "docs/authoring/AI_AUTHORING_MANIFEST_V1.json",
+      "path": "AI_START_HERE.md",
+      "bytes": 2222,
+      "sha256": "3b89aa526678953c109343aaf9974d373d9c06b6fa967668c8b64e753cc25c52"
+    },
+    {
+      "path": "docs/authoring/C2_PUBLICATION_PROVENANCE.md",
+      "bytes": 385,
+      "sha256": "a507946a3b50fc8ccf424c7eb7cfeb9a74c967a117befd8278cfff3bb30a8cf3"
+    },
+    {
+      "path": "docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md",
+      "bytes": 814,
+      "sha256": "5d0a60c5c137377e2700969b30b4efd99e772b38900db08825fc9a7f9e8ae236"
+    },
+    {
+      "path": "docs/authoring/c2/CORE_OPERATIONS.md",
+      "bytes": 1054,
+      "sha256": "8ff479736a342eaf8eb4c9ecb1403d48d13bdc8ad8407fdcb88c5913508ca796"
+    },
+    {
+      "path": "docs/authoring/c2/DATA_AND_INTEGRATIONS.md",
+      "bytes": 1001,
+      "sha256": "48bf7bf164e520696d5f1942db80e91698d0818b706d9c9fe76784b3316a4adb"
+    },
+    {
+      "path": "docs/authoring/c2/examples/core-flow.c2",
+      "bytes": 1407,
+      "sha256": "c538e6a05778f0c51a3633f91157c307dd2c414d40533c0049fc7bda133c6aa9"
+    },
+    {
+      "path": "docs/authoring/c2/examples/minimal.c2",
+      "bytes": 248,
+      "sha256": "e062220f7f42f91ba94bebc4b7bef9a21c836b2cbb1261bd9f535c6f81631187"
+    },
+    {
+      "path": "docs/authoring/c2/examples/README.md",
+      "bytes": 524,
+      "sha256": "84edbf7295a87b00b9f77a6ac9605125083b2340f0ecc082f57204688e5e04e3"
+    },
+    {
+      "path": "docs/authoring/c2/examples/telegram-route.c2",
+      "bytes": 470,
+      "sha256": "c8a71e40a38059a3657ee85fda7e97a4d1b4caec072973186190615ec6e1eab1"
+    },
+    {
+      "path": "docs/authoring/c2/LANGUAGE.md",
+      "bytes": 1018,
+      "sha256": "ab5153e2c743b06bcd08703b62d42200e8cd9beead8d2fee4dba24178c7edc32"
+    },
+    {
+      "path": "docs/authoring/c2/MACHINE_REFERENCE.md",
+      "bytes": 770,
+      "sha256": "f7168e9772faad82da753c2625cc0df01dac9020afd9c5b769126fae8ea009be"
+    },
+    {
+      "path": "docs/authoring/c2/README.md",
+      "bytes": 696,
+      "sha256": "8a77f655f3487649d843c01bb9fbf5f17c4973d2e2be21c6d615ad264d36a8f0"
+    },
+    {
+      "path": "docs/authoring/c2/ROUTING.md",
+      "bytes": 1171,
+      "sha256": "f1711601b26b64fcfe3c68057904f7d7780e2212a3e37dd32849546a86fd047d"
+    },
+    {
+      "path": "docs/authoring/providers/telegram.md",
+      "bytes": 513,
+      "sha256": "cd4669da4ec612378cb12b1e60eb4c59b9c0f58a378d9c2bf1e68ce72a0088ae"
+    },
+    {
+      "path": "docs/authoring/schemas/README.md",
+      "bytes": 312,
+      "sha256": "4f3970514195948c760edf2a0ea7c8fcf6ef9c232829ef36e8f746beab90c1f3"
+    },
+    {
+      "path": "legacy/v1-json/catalogs/AI_OPERATIONS_CATALOG_V1.json",
+      "bytes": 7716,
+      "sha256": "54813d94570511086b2e7dab46f1e472bfaef0e1b77cccdbf4d5056ad749d6b5"
+    },
+    {
+      "path": "legacy/v1-json/catalogs/AI_SAFE_TRANSFORM_SIGNATURES_V1.json",
+      "bytes": 4921,
+      "sha256": "a4c25aaae644a02c42218a70eaf458573162e4286cc22835247e385f5bf21759"
+    },
+    {
+      "path": "legacy/v1-json/catalogs/OWNER_OPERATIONS_PROTOCOL_V1.md",
+      "bytes": 1526,
+      "sha256": "8d8789a70c4d460b72559e127137243c6b61b8a1680fef5f1f7aa740964ae322"
+    },
+    {
+      "path": "legacy/v1-json/catalogs/PUBLIC_OPERATIONS_CONTEXT_MANIFEST_V1.json",
+      "bytes": 1746,
+      "sha256": "f65480fe56bf5f81884a88c637e861b74e4ad9f199e06242ec3ec8f2a7a8b9b2"
+    },
+    {
+      "path": "legacy/v1-json/docs/AI_AUTHORING_MANIFEST_V1.json",
       "bytes": 6363,
       "sha256": "011659a6bc85c3f0b801a255c2502a2ff4158eaec44a42b8e5881225fd1d56bc"
     },
     {
-      "path": "docs/authoring/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md",
+      "path": "legacy/v1-json/docs/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md",
       "bytes": 2927,
       "sha256": "78cb2a056ff7a0bdd36909d3ff01d065f3e540718c9d9db01d00fbc680fad664"
     },
     {
-      "path": "docs/authoring/AI_PUBLIC_ERROR_CATALOG_V1.md",
+      "path": "legacy/v1-json/docs/AI_PUBLIC_ERROR_CATALOG_V1.md",
       "bytes": 8854,
       "sha256": "0b8ff9554985940c095e328b915ff22e07e31992a12c87796bd079cd815175ac"
     },
     {
-      "path": "docs/authoring/AI_REGISTRY_CATALOG_V1.json",
+      "path": "legacy/v1-json/docs/AI_REGISTRY_CATALOG_V1.json",
       "bytes": 42770,
       "sha256": "1338e998fb1bb04bd39b932dc39c924d5406ea26da95789149a3c424f9b7f0e0"
     },
     {
-      "path": "docs/authoring/AI_START_HERE.md",
+      "path": "legacy/v1-json/docs/AI_START_HERE_V1.md",
+      "bytes": 3782,
+      "sha256": "539e94ae43666d132a579c0e150a5f48a694ef64c07c9fc569b586b5fa4cdeac"
+    },
+    {
+      "path": "legacy/v1-json/docs/AI_START_HERE.md",
       "bytes": 2825,
       "sha256": "cf3ac370d5f6fe7e0396d3bdba0f8891a19de8096315f400b2cdd8378e16461a"
     },
     {
-      "path": "docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md",
+      "path": "legacy/v1-json/docs/AUTHORING_CHAT_PROTOCOL_V1.md",
       "bytes": 6138,
       "sha256": "d1f05ef7abe9e5fe6762b6237396eb3b0a6f05d5877694ca9af7dccf8f83c3a4"
     },
     {
-      "path": "docs/authoring/AUTHORING_PRIMITIVES_V1.md",
+      "path": "legacy/v1-json/docs/AUTHORING_PRIMITIVES_V1.md",
       "bytes": 1157,
       "sha256": "815855559f755b45abb34068a7a613436bfb5ef0d0f379481e6c7b524b76ab6c"
     },
     {
-      "path": "docs/authoring/examples/COMPLETENESS_MATRIX_V1.json",
-      "bytes": 3453,
-      "sha256": "0fb9a2aa820387b1a0c969b5d33a15853bbb23b855d2b39db5353eccbd8b66fb"
-    },
-    {
-      "path": "docs/authoring/examples/lead-application.bundle.json",
-      "bytes": 12137,
-      "sha256": "1e730f11aae69f2db80adfe81a9d777a8f4c7b2ea51e76c5eccb089051498749"
-    },
-    {
-      "path": "docs/authoring/examples/lead-application.patch.template.json",
-      "bytes": 407,
-      "sha256": "da4a71a3f4ac900d31fdb86c4e1a1b3a286d492cc990f020ed8d505dd0e28e37"
-    },
-    {
-      "path": "docs/authoring/examples/minimal/http.bundle.json",
-      "bytes": 4392,
-      "sha256": "8a6bb599e36de6fffd4510860b387af13d8897797fdae25f20fc560220eeef8a"
-    },
-    {
-      "path": "docs/authoring/examples/minimal/logic.bundle.json",
-      "bytes": 8907,
-      "sha256": "b9ac827624fe72bc2422c459f4b5666d3f1b8fa8087acbd82f10f2a9661c1e43"
-    },
-    {
-      "path": "docs/authoring/examples/minimal/routing.bundle.json",
-      "bytes": 5681,
-      "sha256": "d2a09bc8eae2c5fa2e7437ea1ec87376a0b14a65e938041c55e992f3a9ecb932"
-    },
-    {
-      "path": "docs/authoring/examples/minimal/typed-input.bundle.json",
-      "bytes": 2042,
-      "sha256": "bbda03c94d6e385ad80cef89fe749be96567e667663b1c31b53f0a98fd586d2b"
-    },
-    {
-      "path": "docs/authoring/examples/README.md",
-      "bytes": 2980,
-      "sha256": "ecc3d45162b1faccf4bc0e6dd30cba7b26a2ea146ef9d4d997919a8acdaa93c2"
-    },
-    {
-      "path": "docs/authoring/examples/schedule-cancel.fragment.json",
-      "bytes": 277,
-      "sha256": "d13df1cf493717a0e210a8c62179f473080424b9e4fff3a44c7e7416f5748517"
-    },
-    {
-      "path": "docs/authoring/examples/simple-menu.bundle.json",
-      "bytes": 2154,
-      "sha256": "a0147098c1cc04c2f32e10cccbc46de57bac3b1f7cbb4f7bc5daf6ff9252782d"
-    },
-    {
-      "path": "docs/authoring/reference/acceptance-and-qualification.md",
+      "path": "legacy/v1-json/docs/reference/acceptance-and-qualification.md",
       "bytes": 1856,
       "sha256": "89fbd6247f9d13ccb8a317a1540c942bee4fa87a7ca5e051e0e90eb49873b266"
     },
     {
-      "path": "docs/authoring/reference/bundle-patch-repair.md",
+      "path": "legacy/v1-json/docs/reference/bundle-patch-repair.md",
       "bytes": 2460,
       "sha256": "43dd73f646e31a187412085daffffa5319c6eab8111b1b88b5532ac02cf1cfeb"
     },
     {
-      "path": "docs/authoring/reference/content-and-actions.md",
+      "path": "legacy/v1-json/docs/reference/content-and-actions.md",
       "bytes": 2221,
       "sha256": "c95dca707f6dbf9ec52226849136647284ba26f81a81144db62cd8dd61e6eca8"
     },
     {
-      "path": "docs/authoring/reference/data-fields.md",
+      "path": "legacy/v1-json/docs/reference/data-fields.md",
       "bytes": 1709,
       "sha256": "45fc06f1e839ec520160d0fdd18ed59d8ce5f1afd1dfc6f6318bb9573229f38a"
     },
     {
-      "path": "docs/authoring/reference/http.md",
+      "path": "legacy/v1-json/docs/reference/http.md",
       "bytes": 2328,
       "sha256": "5f7a9ac25c407df662dc7f53f71e29aca50fd7731309c711e0297260bab173e8"
     },
     {
-      "path": "docs/authoring/reference/inputs-and-routing.md",
+      "path": "legacy/v1-json/docs/reference/inputs-and-routing.md",
       "bytes": 2562,
       "sha256": "44cd1551b206d16428b658e887740a607653a538d18487fc8cf37ef67484dec7"
     },
     {
-      "path": "docs/authoring/reference/logic.md",
+      "path": "legacy/v1-json/docs/reference/logic.md",
       "bytes": 3505,
       "sha256": "c73b9573b213cb41e2bd84f66dc13233de837ca5f0595b3aa19d47274e7037b3"
     },
     {
-      "path": "docs/authoring/reference/README.md",
+      "path": "legacy/v1-json/docs/reference/README.md",
       "bytes": 2076,
       "sha256": "f4c0f6fa6893561473bcc99e4a7eb1ba60ec7ecee1b5ed99b53dd0e6a43b9560"
     },
     {
-      "path": "docs/authoring/reference/structure.md",
+      "path": "legacy/v1-json/docs/reference/structure.md",
       "bytes": 2022,
       "sha256": "ddedbb3cc7cab7e46d17374fe08fdb17b1829cf2bd5334b9ded071326c6ae00b"
     },
     {
-      "path": "docs/authoring/schemas/bot-acceptance-spec-v1.schema.json",
+      "path": "legacy/v1-json/examples/authoring-examples/COMPLETENESS_MATRIX_V1.json",
+      "bytes": 3453,
+      "sha256": "0fb9a2aa820387b1a0c969b5d33a15853bbb23b855d2b39db5353eccbd8b66fb"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/lead-application.bundle.json",
+      "bytes": 12137,
+      "sha256": "1e730f11aae69f2db80adfe81a9d777a8f4c7b2ea51e76c5eccb089051498749"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/lead-application.patch.template.json",
+      "bytes": 407,
+      "sha256": "da4a71a3f4ac900d31fdb86c4e1a1b3a286d492cc990f020ed8d505dd0e28e37"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/minimal/http.bundle.json",
+      "bytes": 4392,
+      "sha256": "8a6bb599e36de6fffd4510860b387af13d8897797fdae25f20fc560220eeef8a"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/minimal/logic.bundle.json",
+      "bytes": 8907,
+      "sha256": "b9ac827624fe72bc2422c459f4b5666d3f1b8fa8087acbd82f10f2a9661c1e43"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/minimal/routing.bundle.json",
+      "bytes": 5681,
+      "sha256": "d2a09bc8eae2c5fa2e7437ea1ec87376a0b14a65e938041c55e992f3a9ecb932"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/minimal/typed-input.bundle.json",
+      "bytes": 2042,
+      "sha256": "bbda03c94d6e385ad80cef89fe749be96567e667663b1c31b53f0a98fd586d2b"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/README.md",
+      "bytes": 2980,
+      "sha256": "ecc3d45162b1faccf4bc0e6dd30cba7b26a2ea146ef9d4d997919a8acdaa93c2"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/schedule-cancel.fragment.json",
+      "bytes": 277,
+      "sha256": "d13df1cf493717a0e210a8c62179f473080424b9e4fff3a44c7e7416f5748517"
+    },
+    {
+      "path": "legacy/v1-json/examples/authoring-examples/simple-menu.bundle.json",
+      "bytes": 2154,
+      "sha256": "a0147098c1cc04c2f32e10cccbc46de57bac3b1f7cbb4f7bc5daf6ff9252782d"
+    },
+    {
+      "path": "legacy/v1-json/examples/operations-examples/choice-subflow.operations.json",
+      "bytes": 1710,
+      "sha256": "9e7ace1b07f8bc13506e436ca4cc913317f75304be05d3c9e0d2faa1eed7cdd0"
+    },
+    {
+      "path": "legacy/v1-json/examples/operations-examples/data-field.operations.json",
+      "bytes": 337,
+      "sha256": "a85a884590824cd79ce2d01664e99e689ef38346fda5d2ffad6af78f1e3fef28"
+    },
+    {
+      "path": "legacy/v1-json/examples/operations-examples/http-resource.operations.json",
+      "bytes": 676,
+      "sha256": "1b3fdf3244726c36a866ef7e98e09b359fec98c05b28aeab6f7d6ca7feaf4474"
+    },
+    {
+      "path": "legacy/v1-json/examples/operations-examples/repair-routing.operations.json",
+      "bytes": 255,
+      "sha256": "1609371e6deda5b76d63f33a30bd59d7d87f5c8df105d28e0a612619919aa3de"
+    },
+    {
+      "path": "legacy/v1-json/examples/operations-examples/routing.operations.json",
+      "bytes": 335,
+      "sha256": "ed9b75784ac16ca44112dc25012f860355fce9a202b725514f6737bd15d90606"
+    },
+    {
+      "path": "legacy/v1-json/README.md",
+      "bytes": 515,
+      "sha256": "27b97da6487279e5951c239053ec2261b29fd7038b2ff33c7b0ca8f33a1afb89"
+    },
+    {
+      "path": "legacy/v1-json/schemas/authoring-schemas/bot-acceptance-spec-v1.schema.json",
       "bytes": 16322,
       "sha256": "902e053a1793194432a5cd7a77c3adfd6d3c469c04d813bfc47f42d476be67a6"
     },
     {
-      "path": "docs/authoring/schemas/bot-spec-v1.schema.json",
+      "path": "legacy/v1-json/schemas/authoring-schemas/bot-spec-v1.schema.json",
       "bytes": 90421,
       "sha256": "323ec6122ae595502692d176b840a6ff2327e3060ebce11383b2088dfc415f40"
     },
     {
-      "path": "docs/authoring/schemas/data-field-catalog-v1.schema.json",
+      "path": "legacy/v1-json/schemas/authoring-schemas/data-field-catalog-v1.schema.json",
       "bytes": 5945,
       "sha256": "add4281fb8da8f5bdb6bb23fe36d9ec00e6a28e904ffe5505f5f5d2fa1aa46a4"
     },
     {
-      "path": "docs/authoring/schemas/README.md",
+      "path": "legacy/v1-json/schemas/authoring-schemas/README.md",
       "bytes": 2194,
       "sha256": "4bd78d20cb38bc24da7fb17e2b0e0779a309ec6687b32c30aed9c5777bb1b550"
     },
     {
-      "path": "docs/authoring/schemas/saydone-authoring-bundle-v1.schema.json",
+      "path": "legacy/v1-json/schemas/authoring-schemas/saydone-authoring-bundle-v1.schema.json",
       "bytes": 927,
       "sha256": "12d23a64771bb4397c2c9a053360723c5d22b69964e84421a6df8bcc6451eaec"
     },
     {
-      "path": "docs/authoring/schemas/saydone-authoring-patch-v1.schema.json",
+      "path": "legacy/v1-json/schemas/authoring-schemas/saydone-authoring-patch-v1.schema.json",
       "bytes": 4028,
       "sha256": "625f7a3090df98e0dd998485b01f8de2d9c285f789213026a7a55dedf5f605ee"
     },
     {
-      "path": "docs/evidence/AUTHORING_2C_FRESH_AI_TASKS_V1.json",
-      "bytes": 3361,
-      "sha256": "357afb08e50a62d8476a7f0bbe0d63cf7dcdbe0613b048a60bcc9c39ceaa32e9"
+      "path": "legacy/v1-json/schemas/root-schemas/saydone-authoring-operations-v1.schema.json",
+      "bytes": 19565,
+      "sha256": "7ed46d1ac49d917990376954dca8878048c98de98b49b1a0aa8f78afa9553dd8"
     },
     {
       "path": "llms.txt",
-      "bytes": 2334,
-      "sha256": "29007cedf7ae89f51709d7addd6a51e4499adcd0a7b933c42da59b0cb375b143"
+      "bytes": 730,
+      "sha256": "f45bb50a2b6674dfa330d03ed490850de1e3cde64de291eaa0189acf94719221"
     },
     {
       "path": "README.md",
-      "bytes": 658,
-      "sha256": "7f9e8c8b1878a46fd79c9b24daa4be52fe987658dc5f1b80344f8acb2a5c58f6"
+      "bytes": 1182,
+      "sha256": "7a2f0b59c066558bee49b5956e693ba73acf95f12aadb34453aef1bdb2b74da1"
     }
   ]
 }

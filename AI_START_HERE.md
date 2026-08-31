@@ -1,17 +1,27 @@
-# SayDoneAuthoringOperationsV1
+# Старт для ИИ: C2
 
-Верни ровно один fenced JSON block: строка ```json, затем один документ SayDoneAuthoringOperationsV1, затем ```. Не добавляй текст до или после блока. Точная форма принадлежит schemas/saydone-authoring-operations-v1.schema.json. Краткое назначение операций и code-owned registries находятся в AI_OPERATIONS_CATALOG_V1.json. Точные arity, типы аргументов, result type, null/missing behavior и запрет coercion для каждого `set_safe_transform` опубликованы в AI_SAFE_TRANSFORM_SIGNATURES_V1.json; сверяй operation с этой матрицей до ответа.
+Для создания верните один полный, самостоятельный исходный документ C2. Он
+должен включать все необходимые декларации и блоки; не возвращайте V1 JSON,
+Bundle, Patch, runtime-идентификаторы, секреты, данные поставщика или действия
+развёртывания.
 
-Initial prompt SayDone уже содержит exact baseRevision/baseChecksum для system seed. В каждом repair turn SayDone автоматически передаёт точные текущие literal baseRevision и baseChecksum. Перенеси оба значения в новый SayDoneAuthoringOperationsV1 дословно: не вычисляй, не угадывай, не восстанавливай их из предыдущего turn и не используй binding прошлого ответа. Repair turn меняет только фактическую ошибку поверх новой exact base и также возвращает Operations, а не Patch или Bundle.
+Для изменения или исправления верните полный replacement C2 source. Выполняйте
+замену только относительно точных `sourceRevision` и `sourceChecksum`, которые
+сервер передал в текущем запросе. Не вычисляйте, не угадывайте и не переносите
+эти значения из прошлого ответа. Частичное или нечёткое редактирование текста
+не является текущим контрактом.
 
-## Choice → Subflow
+Не предполагается отдельный публичный формат сообщения чата: C2 source — это
+авторский вход, а конкретная доставка определяется вызывающей системой.
 
-Если choice сохраняет business value, запускает reusable Subflow и после его return продолжает путь в logical block, используй `connect_choice_to_subflow`. В `set_choice_block` у этой choice не указывай `nextBlockKey`. Передай только source block/choice, target Subflow, continuation и необходимые business field mappings. Не создавай call block, bridge, return wiring или generated identity: ими полностью владеет SayDone. `set_subflow_call` и choice с `nextBlockKey` остаются поддерживаемым низкоуровневым маршрутом.
+Читайте контекст по порядку:
 
-Приёмочные сценарии покрывают каждый самостоятельный авторский бизнес-путь. `Button` и его text aliases одной `choice` — эквивалентные представления одного пути; достаточно одного корректного сценария выбора. Явно объявленный command route, включая `/start`, — самостоятельный путь и требует собственного сценария. Не используйте generated runtime IDs для покрытия: canonical preview сам сопоставляет исходную семантику.
+1. [Язык C2](docs/authoring/c2/LANGUAGE.md).
+2. [Основные операции](docs/authoring/c2/CORE_OPERATIONS.md).
+3. [Данные и интеграции](docs/authoring/c2/DATA_AND_INTEGRATIONS.md), если они нужны.
+4. [Маршрутизация](docs/authoring/c2/ROUTING.md), если есть входы или маршруты.
+5. [Жизненный цикл и приёмка](docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md), если запрос касается проверки или замены.
+6. [Telegram](docs/authoring/providers/telegram.md), только для Telegram-фактов.
 
-Пользователь просто копирует generated prompt в AI, получает JSON code block через Copy code и вставляет JSON обратно в SayDone. Не нужно вручную искать revision/checksum или понимать их происхождение.
-
-Примеры показывают изолированный синтаксис отдельных операций; они не являются готовой схемой продукта, задачей qualification или последовательностью для копирования. Canonical preview после apply остаётся окончательной проверкой.
-
-Не передавай credentials, runtime/database IDs, provider payload, generated IDs, raw BotSpec AST, Patch changes, Bundle или deployment actions.
+Named calls в текущем production parser должны полностью находиться на одной
+строке. Не разбивайте их аргументы на несколько строк.

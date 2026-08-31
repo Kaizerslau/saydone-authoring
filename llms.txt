@@ -1,37 +1,15 @@
-# SayDone: декларативные Telegram-боты
+# SayDone C2 authoring context
 
-> Создайте `SayDoneAuthoringBundleV1` или небольшой `SayDoneAuthoringPatchV1`.
-> Каноническая проверка SayDone остаётся окончательной проверкой исходного JSON.
+Primary authoring source is complete C2 text. JSON is a deterministic machine snapshot.
 
-## Начать
+Read progressively:
+1. AI_START_HERE.md
+2. docs/authoring/c2/LANGUAGE.md
+3. docs/authoring/c2/CORE_OPERATIONS.md
+4. docs/authoring/c2/DATA_AND_INTEGRATIONS.md when data, HTTP, timers, or subflows are needed
+5. docs/authoring/c2/ROUTING.md when inputs or external routes are needed
+6. docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md when validating or replacing a revision
+7. docs/authoring/providers/telegram.md only for Telegram-specific facts
+8. docs/authoring/c2/examples/README.md for production-valid examples
 
-- [Старт для ИИ](docs/authoring/AI_START_HERE.md): короткий путь `Bundle` →
-  проверка → `RepairReportV1` → `Patch`.
-- [Карта материалов](docs/authoring/AI_AUTHORING_MANIFEST_V1.json): выберите
-  только нужную тему, справочник и пример.
-- [Структурные JSON Schema](docs/authoring/schemas/README.md): предварительная
-  проверка формы по нужному артефакту; не заменяет проверку SayDone.
-
-## Справочник
-
-- [Конструкции бота](docs/authoring/reference/README.md): выберите структуру,
-  данные, маршрутизацию, логику, контент, HTTP, приёмочные сценарии или исправление.
-- [Коды ошибок](docs/authoring/AI_PUBLIC_ERROR_CATALOG_V1.md): код и безопасная
-  граница исправления.
-- [Публичные операции и события модулей](docs/authoring/AI_CAPABILITY_EVENT_OPERATION_INDEX_V1.md):
-  только для зарегистрированных интеграций.
-
-## Примеры
-
-- [Примеры](docs/authoring/examples/README.md): полные `Bundle` и фрагменты;
-  они проходят реальную проверку SayDone.
-
-## Дополнительно
-
-- [Протокол обычного диалога](docs/authoring/AUTHORING_CHAT_PROTOCOL_V1.md):
-  порядок передачи `Bundle`/`Patch` владельцу.
-
-Не создавайте `BotPackageV1`, сгенерированные идентификаторы времени выполнения,
-данные поставщика, секретные значения, SQL, JS/eval или прямые сетевые запросы.
-Используйте собственные
-стабильные логические ключи и зарегистрированные операции.
+Do not use legacy/v1-json for new C2 revisions. It is historical and migration reference only.
