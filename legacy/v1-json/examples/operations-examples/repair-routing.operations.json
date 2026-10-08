@@ -1,1 +1,0 @@
-{"baseChecksum":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef","baseRevision":"bundle_0123456789abcdef01234567","operations":[{"command":"/help","kind":"set_routing","route":"command","targetBlockKey":"welcome"}],"operationsVersion":1}

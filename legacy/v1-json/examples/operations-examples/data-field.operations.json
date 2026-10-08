@@ -1,1 +1,0 @@
-{"baseChecksum":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef","baseRevision":"bundle_0123456789abcdef01234567","operations":[{"allowedValues":["ru","en"],"key":"preferred_locale","kind":"upsert_data_field","label":"Предпочтительный язык","scope":"user","valueType":"text"}],"operationsVersion":1}
