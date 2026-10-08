@@ -1,0 +1,48 @@
+language "saydone-r2/1"
+registry "r2-oracle-1"
+project lead(name: "Лид", locale: "ru")
+field score(type: number, scope: user, label: "Оценка")
+field segment(type: text, scope: flow, label: "Сегмент")
+field crm_id(type: text, scope: flow, label: "CRM ID")
+content welcome(text: "Здравствуйте", required: [])
+http crm(method: POST, endpoint: "https://example.test/leads", idempotency: provider_key, credential: cred, mode: bearer, body: [score:score])
+
+ruleset segment_rules(resultField: segment) {
+  rule hot when score >= 80 => hot
+  otherwise => standard
+}
+
+funnel sales {
+  block a_start {
+    data.set(field: score, value: 80)
+    rules.apply(ruleSet: segment_rules)
+    message.send(content: welcome)
+    on.command(name: continue) => b_http
+  }
+  block b_http {
+    saveState: false
+    http.request(resource: crm, result: response)
+    http.save(field: crm_id, path: "/id", result: response)
+    next c_schedule
+  }
+  block c_schedule {
+    saveState: false
+    schedule.create(id: reminder, after: "1h", target: d_call, replace: false)
+  }
+  block d_call {
+    subflow.call(subflow: qualify, then: e_done)
+  }
+  block e_done {
+    data.unset(field: segment)
+  }
+}
+
+subflow qualify(inputs: [score], outputs: [segment], entry: decide, result: result) {
+  block decide {
+    saveState: false
+    rules.apply(ruleSet: segment_rules)
+    next result
+  }
+  block result {
+  }
+}

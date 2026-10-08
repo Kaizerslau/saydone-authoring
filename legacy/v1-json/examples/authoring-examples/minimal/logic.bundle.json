@@ -1,0 +1,364 @@
+{
+  "bundleVersion": 1,
+  "artifacts": {
+    "botSpec": {
+      "specVersion": 1,
+      "bot": {
+        "name": "Заявка на услугу",
+        "defaultLocale": "ru"
+      },
+      "ruleSets": {
+        "qualification": {
+          "mode": "first_match",
+          "resultField": "qualification",
+          "rules": [
+            {
+              "key": "adult",
+              "when": {
+                "field": "age_next_year",
+                "op": "greaterOrEqual",
+                "value": 18
+              },
+              "value": "qualified"
+            }
+          ],
+          "otherwise": {
+            "type": "value",
+            "value": "review"
+          }
+        }
+      },
+      "entry": "menu",
+      "startPayloads": {
+        "promo": "menu"
+      },
+      "blocks": {
+        "menu": {
+          "actions": [
+            {
+              "type": "send",
+              "text": "Начать",
+              "buttons": [
+                {
+                  "text": "Анкета",
+                  "action": {
+                    "type": "choice",
+                    "key": "consultation",
+                    "run": "service_selected",
+                    "save": "selected_service"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "service_selected": {
+          "actions": [
+            {
+              "type": "send",
+              "text": "Далее"
+            }
+          ],
+          "on": [
+            {
+              "text": {
+                "equalsAny": [
+                  "далее"
+                ],
+                "trim": true,
+                "ignoreCase": true
+              },
+              "run": "profile_call"
+            }
+          ]
+        },
+        "profile_call": {
+          "call": {
+            "subflow": "qualify_service",
+            "then": "contact"
+          }
+        },
+        "contact": {
+          "actions": [
+            {
+              "type": "send",
+              "text": "Контакт",
+              "buttons": [
+                {
+                  "text": "Контакт",
+                  "action": {
+                    "type": "request_contact"
+                  }
+                }
+              ]
+            }
+          ],
+          "input": {
+            "type": "telegram_contact",
+            "save": "contact_phone",
+            "run": "summary"
+          }
+        },
+        "summary": {
+          "actions": [
+            {
+              "type": "send",
+              "text": "Готово"
+            }
+          ],
+          "on": [
+            {
+              "text": {
+                "equalsAny": [
+                  "confirm"
+                ],
+                "trim": true,
+                "ignoreCase": true
+              },
+              "run": "confirmed"
+            }
+          ]
+        },
+        "confirmed": {
+          "actions": [
+            {
+              "type": "send",
+              "text": "Подтверждено"
+            }
+          ]
+        }
+      },
+      "subflows": {
+        "qualify_service": {
+          "inputs": [
+            "selected_service"
+          ],
+          "outputs": [
+            "age",
+            "age_next_year",
+            "qualification"
+          ],
+          "entry": "ask_age",
+          "result": "done",
+          "blocks": {
+            "ask_age": {
+              "actions": [
+                {
+                  "type": "send",
+                  "text": "Возраст"
+                }
+              ],
+              "input": {
+                "type": "number",
+                "save": "age",
+                "run": "age_gate"
+              }
+            },
+            "age_gate": {
+              "actions": [
+                {
+                  "type": "send",
+                  "text": "Далее"
+                }
+              ],
+              "on": [
+                {
+                  "text": {
+                    "equalsAny": [
+                      "далее"
+                    ],
+                    "trim": true,
+                    "ignoreCase": true
+                  },
+                  "when": {
+                    "field": "age",
+                    "op": "greaterOrEqual",
+                    "value": 0
+                  },
+                  "run": "calculate"
+                }
+              ]
+            },
+            "calculate": {
+              "saveState": false,
+              "actions": [
+                {
+                  "type": "set",
+                  "values": {
+                    "age_next_year": {
+                      "$transform": {
+                        "operation": "add",
+                        "args": [
+                          {
+                            "$from": "age"
+                          },
+                          1
+                        ]
+                      }
+                    }
+                  }
+                }
+              ],
+              "next": "classify"
+            },
+            "classify": {
+              "saveState": false,
+              "actions": [
+                {
+                  "type": "applyRuleSet",
+                  "ruleSet": "qualification"
+                }
+              ],
+              "next": "done"
+            },
+            "done": {}
+          }
+        }
+      }
+    },
+    "dataFields": {
+      "dataFieldCatalogVersion": 1,
+      "fields": [
+        {
+          "key": "selected_service",
+          "label": "Услуга",
+          "scope": "user",
+          "type": "text",
+          "allowedValues": [
+            "consultation"
+          ],
+          "visibility": "standard"
+        },
+        {
+          "key": "age",
+          "label": "Возраст",
+          "scope": "flow",
+          "type": "number",
+          "min": 0,
+          "max": 120,
+          "visibility": "standard"
+        },
+        {
+          "key": "age_next_year",
+          "label": "Возраст в следующем году",
+          "scope": "flow",
+          "type": "number",
+          "min": 1,
+          "max": 121,
+          "visibility": "technical"
+        },
+        {
+          "key": "qualification",
+          "label": "Результат квалификации",
+          "scope": "flow",
+          "type": "text",
+          "allowedValues": [
+            "qualified",
+            "review"
+          ],
+          "visibility": "standard"
+        },
+        {
+          "key": "contact_phone",
+          "label": "Телефон",
+          "scope": "user",
+          "type": "text",
+          "format": "phone",
+          "visibility": "standard"
+        }
+      ]
+    },
+    "acceptance": {
+      "acceptanceVersion": 1,
+      "scenarios": [
+        {
+          "key": "qualified_application",
+          "description": "Static service choice, Subflow, typed input, transform, RuleSet, contact and CRM resource compose.",
+          "steps": [
+            {
+              "type": "start",
+              "payload": "promo"
+            },
+            {
+              "type": "processEffects"
+            },
+            {
+              "type": "button",
+              "block": "menu",
+              "actionIndex": 0,
+              "buttonIndex": 0
+            },
+            {
+              "type": "text",
+              "text": "далее"
+            },
+            {
+              "type": "expectBlock",
+              "subflow": "qualify_service",
+              "block": "ask_age"
+            },
+            {
+              "type": "processEffects"
+            },
+            {
+              "type": "text",
+              "text": "20"
+            },
+            {
+              "type": "text",
+              "text": "далее"
+            },
+            {
+              "type": "expectBlock",
+              "block": "contact"
+            },
+            {
+              "type": "processEffects"
+            },
+            {
+              "type": "contact",
+              "phone": "+79991234567"
+            },
+            {
+              "type": "expectBlock",
+              "block": "summary"
+            },
+            {
+              "type": "processEffects"
+            },
+            {
+              "type": "text",
+              "text": "confirm"
+            },
+            {
+              "type": "expectBlock",
+              "block": "confirmed"
+            },
+            {
+              "type": "processEffects"
+            },
+            {
+              "type": "expectNoPendingWork"
+            }
+          ]
+        }
+      ]
+    },
+    "qualification": {
+      "contractVersion": 1,
+      "qualificationKey": "logic-v1",
+      "requirements": [
+        {
+          "id": "qualified_application",
+          "scenarioKey": "qualified_application",
+          "requiredAssertions": [
+            {
+              "type": "assert_no_pending_work",
+              "match": {}
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

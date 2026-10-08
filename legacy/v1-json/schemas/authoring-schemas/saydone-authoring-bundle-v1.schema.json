@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:saydone:authoring:saydone-authoring-bundle-v1",
+  "title": "SayDoneAuthoringBundleV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "bundleVersion",
+    "artifacts"
+  ],
+  "properties": {
+    "bundleVersion": {
+      "const": 1
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "botSpec": {
+          "$ref": "urn:saydone:authoring:bot-spec-v1"
+        },
+        "dataFields": {
+          "$ref": "urn:saydone:authoring:data-field-catalog-v1"
+        },
+        "acceptance": {
+          "$ref": "urn:saydone:authoring:bot-acceptance-spec-v1"
+        },
+        "qualification": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "botSpec",
+        "dataFields",
+        "acceptance",
+        "qualification"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+language "saydone-r2/1"
+registry "r2-oracle-1"
+project gift(name: "Подарок", locale: "ru")
+content welcome(text: "Подарок", required: [])
+external.route telegram_gift(kind: text, value: gift, provider: telegram, fact: telegram.bot_command, factVersion: 1, factValue: "{\"arguments\":\"gift\",\"command\":\"start\",\"startParameterCandidate\":\"gift\"}", target: sales.open_gift)
+
+funnel sales {
+  block open_gift {
+    message.send(content: welcome)
+  }
+}

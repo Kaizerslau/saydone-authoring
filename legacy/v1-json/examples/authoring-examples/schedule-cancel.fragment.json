@@ -1,0 +1,9 @@
+{
+  "startActions": [
+    { "type": "schedule", "id": "followup", "after": "30m", "run": "followup", "replace": true }
+  ],
+  "cancelActions": [
+    { "type": "cancelSchedule", "id": "followup" },
+    { "type": "send", "text": "Напоминание отменено" }
+  ]
+}
