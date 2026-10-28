@@ -1,0 +1,40 @@
+language "saydone-r2/1"
+registry "c2-public-1"
+project dynamic_checkout(name: "Два продукта", locale: "ru")
+field product_price(type: text, scope: user, label: "Цена")
+field product_description(type: text, scope: user, label: "Описание")
+field receipt_name(type: text, scope: user, label: "Позиция чека")
+field buyer_email(type: text, scope: user, label: "Email", format: email)
+content choose(text: "Выберите продукт: /rookie или /calm", required: [])
+content checkout_ready(text: "Заказ подготовлен", required: [])
+funnel main {
+  block start {
+    message.send(content: choose)
+    on.command(name: rookie) => rookie
+    on.command(name: calm) => calm
+  }
+  block rookie {
+    saveState: false
+    data.set(field: product_price, value: "20000")
+    data.set(field: product_description, value: "Доступ Rookie")
+    data.set(field: receipt_name, value: "SayDone Rookie")
+    route main.email
+  }
+  block calm {
+    saveState: false
+    data.set(field: product_price, value: "5000.00")
+    data.set(field: product_description, value: "Доступ Calm")
+    data.set(field: receipt_name, value: "SayDone Calm")
+    route main.email
+  }
+  block email {
+    input.capture(type: email, field: buyer_email) => checkout
+  }
+  block checkout {
+    billing.checkout(paymentKey: shared_product, paymentAccountKey: main, checkoutType: one_time, description: $product_description, amount: $product_price, currency: RUB, buyerEmail: $buyer_email, receiptItemName: $receipt_name, receiptVatCode: "1", receiptPaymentMode: full_payment, receiptPaymentSubject: service, receiptMeasure: piece)
+    on.event(name: CHECKOUT_CREATED) => ready
+  }
+  block ready {
+    message.send(content: checkout_ready, buttonLabel: "Оплатить", buttonAction: hosted_checkout)
+  }
+}

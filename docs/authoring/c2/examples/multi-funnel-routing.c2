@@ -1,0 +1,25 @@
+language "saydone-r2/1"
+registry "c2-public-1"
+project routed_demo(name: "Маршруты", locale: "ru")
+external.route start(kind: action, value: start, target: sales.start)
+external.route help(kind: text, value: help, target: support.start)
+funnel sales {
+  block start {
+    message.send(text: "Продажи")
+    message.button(key: support, label: "Поддержка") => bridge
+  }
+  block bridge {
+    saveState: false
+    route support.start
+  }
+}
+funnel support {
+  block start {
+    message.send(text: "Поддержка")
+    message.button(key: sales, label: "Продажи") => back
+  }
+  block back {
+    saveState: false
+    route sales.start
+  }
+}

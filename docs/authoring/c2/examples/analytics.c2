@@ -1,0 +1,18 @@
+language "saydone-r2/1"
+registry "analytics-example-1"
+project lead(name: "Две точки воронки", locale: "ru")
+
+field score(type: number, scope: user, label: "Оценка")
+external.route begin(kind: text, value: start, target: sales.opened)
+
+funnel sales {
+  block opened {
+    data.set(field: score, value: 10)
+    analytics.track(event: "lead_progress", properties: [step:"opened"], fields: [lead_score:score])
+    on.command(name: continue) => qualified
+  }
+  block qualified {
+    data.set(field: score, value: 20)
+    analytics.track(event: "lead_progress", properties: [step:"qualified"], fields: [lead_score:score])
+  }
+}

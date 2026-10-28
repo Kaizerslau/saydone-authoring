@@ -1,27 +1,27 @@
-# Старт для ИИ: C2
+# Начало работы внешнего ИИ с SayDone Language
 
-Для создания верните один полный, самостоятельный исходный документ C2. Он
-должен включать все необходимые декларации и блоки; не возвращайте V1 JSON,
-Bundle, Patch, runtime-идентификаторы, секреты, данные поставщика или действия
-развёртывания.
+Создавайте полный C2 source, начиная с `language "saydone-r2/1"`, registry и
+project. Используйте только синтаксис из текущих документов этого набора и
+стабильные логические keys. Не создавайте JSON Bundle, runtime UUID, callback
+payload, provider secret, URL оплаты, SQL или внутренние артефакты.
 
-Для изменения или исправления верните полный replacement C2 source. Выполняйте
-замену только относительно точных `sourceRevision` и `sourceChecksum`, которые
-сервер передал в текущем запросе. Не вычисляйте, не угадывайте и не переносите
-эти значения из прошлого ответа. Частичное или нечёткое редактирование текста
-не является текущим контрактом.
+Порядок чтения:
 
-Не предполагается отдельный публичный формат сообщения чата: C2 source — это
-авторский вход, а конкретная доставка определяется вызывающей системой.
+1. [README](README.md);
+2. [язык и базовый диалог](docs/authoring/c2/LANGUAGE.md);
+3. [операции](docs/authoring/c2/CORE_OPERATIONS.md);
+4. [внешние маршруты](docs/authoring/c2/ROUTING.md);
+5. [DataField, HTTP и schedules](docs/authoring/c2/DATA_AND_INTEGRATIONS.md);
+6. [примеры](docs/authoring/c2/examples/README.md).
 
-Читайте контекст по порядку:
+Для оплаты используйте только описанный проверенный one-time path из
+`hosted-checkout.c2` и `dynamic-checkout.c2`. One-time checkout не означает
+поддержку recurring subscription, Closed Club membership, Telegram join
+approval/removal, entitlement reminders либо automatic expiry/revoke. Если
+сценарий требует такую lifecycle-композицию, укажите ограничение и не
+придумывайте callbacks, операции или provider API.
 
-1. [Язык C2](docs/authoring/c2/LANGUAGE.md).
-2. [Основные операции](docs/authoring/c2/CORE_OPERATIONS.md).
-3. [Данные и интеграции](docs/authoring/c2/DATA_AND_INTEGRATIONS.md), если они нужны.
-4. [Маршрутизация](docs/authoring/c2/ROUTING.md), если есть входы или маршруты.
-5. [Жизненный цикл и приёмка](docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md), если запрос касается проверки или замены.
-6. [Telegram](docs/authoring/providers/telegram.md), только для Telegram-фактов.
-
-Named calls в текущем production parser должны полностью находиться на одной
-строке. Не разбивайте их аргументы на несколько строк.
+Перед ответом проверьте, что every named call находится на одной строке,
+references существуют, `message.button` имеет stable `key`, а provider-specific
+условие написано явно. Если нужная capability не описана, не угадывайте её:
+укажите ограничение вместо неподдерживаемого синтаксиса.

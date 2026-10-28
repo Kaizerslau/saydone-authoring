@@ -1,36 +1,56 @@
 {
-  "exportVersion": 1,
+  "exportVersion": 2,
   "sourceRepository": "Kaizerslau/saydone-authoring",
-  "sourceCommit": "65efb9edb1b84f5371da85f9731d95ef04105fad",
   "publicationSource": {
     "repository": "Kaizerslau/saydone",
-    "commit": "3fac7c79c9b6b4e35edc2d48a63f0e41329888cd"
+    "commit": "927732970e28d3785876c75b0eea651df05be767"
+  },
+  "legacySource": {
+    "repository": "Kaizerslau/saydone-authoring",
+    "commit": "65efb9edb1b84f5371da85f9731d95ef04105fad",
+    "manifestSha256": "5757f61791577a7ea5ef4afb1498960db8f959f5d5815cc9e43ef1c8d6c445fc",
+    "files": 44
   },
   "files": [
     {
       "path": "AI_START_HERE.md",
-      "bytes": 2222,
-      "sha256": "3b89aa526678953c109343aaf9974d373d9c06b6fa967668c8b64e753cc25c52"
+      "bytes": 1926,
+      "sha256": "d7ef725cfd3fa9eb1112c002dd27c6f829e7d045c3fa5c6144aac777fbfc04a7"
     },
     {
       "path": "docs/authoring/C2_PUBLICATION_PROVENANCE.md",
-      "bytes": 385,
-      "sha256": "a507946a3b50fc8ccf424c7eb7cfeb9a74c967a117befd8278cfff3bb30a8cf3"
+      "bytes": 512,
+      "sha256": "b4e76a550ae4f8015a172813634075436f881e9be147dcccbdd9546b349540cc"
     },
     {
       "path": "docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md",
-      "bytes": 814,
-      "sha256": "5d0a60c5c137377e2700969b30b4efd99e772b38900db08825fc9a7f9e8ae236"
+      "bytes": 2080,
+      "sha256": "2dae4cc6071a221645af090dc3699a7943129f50a4258f6228d0cbe3657f5c29"
+    },
+    {
+      "path": "docs/authoring/c2/COMPLETENESS_MATRIX.json",
+      "bytes": 1235,
+      "sha256": "3207425c73e36a47edf0c463f307dea259f5ec27ce106cf631e8d8271ecc26eb"
     },
     {
       "path": "docs/authoring/c2/CORE_OPERATIONS.md",
-      "bytes": 1054,
-      "sha256": "8ff479736a342eaf8eb4c9ecb1403d48d13bdc8ad8407fdcb88c5913508ca796"
+      "bytes": 6144,
+      "sha256": "40a9efa1bf730e13d4f42e46cfd116d585034ec00ddad50d074a5545eae6b893"
     },
     {
       "path": "docs/authoring/c2/DATA_AND_INTEGRATIONS.md",
-      "bytes": 1001,
-      "sha256": "48bf7bf164e520696d5f1942db80e91698d0818b706d9c9fe76784b3316a4adb"
+      "bytes": 6054,
+      "sha256": "a22c0f7ab38bd58921ff09e1d6bd19496a4ac3ca9a0c3698c26160312ca9123c"
+    },
+    {
+      "path": "docs/authoring/c2/examples/analytics.c2",
+      "bytes": 644,
+      "sha256": "f1e0f998ea882b9a94f9898c3c890c06eed9b69518644ec9d5b9117f42880b2e"
+    },
+    {
+      "path": "docs/authoring/c2/examples/branching.c2",
+      "bytes": 1276,
+      "sha256": "a7807a0e2829a15abaa5c824fffea2a66b86b265bba3e4a09a1ea9cc59806904"
     },
     {
       "path": "docs/authoring/c2/examples/core-flow.c2",
@@ -38,14 +58,64 @@
       "sha256": "c538e6a05778f0c51a3633f91157c307dd2c414d40533c0049fc7bda133c6aa9"
     },
     {
+      "path": "docs/authoring/c2/examples/dynamic-checkout.c2",
+      "bytes": 1831,
+      "sha256": "084b9cd0b13b20795f26e50c6449973e8c8b6f66a36be5a9452c6d6d39f821de"
+    },
+    {
+      "path": "docs/authoring/c2/examples/hosted-checkout.c2",
+      "bytes": 638,
+      "sha256": "8f9402a258f69fb36e7304b279f093c120ff4044b1c6f0fc4ff8b7bfb1542095"
+    },
+    {
+      "path": "docs/authoring/c2/examples/lead-form.c2",
+      "bytes": 1560,
+      "sha256": "ae68693f208e54d73c88c6dbaaf219b1c85bc8f7607dcbbf43bc8c7ede4cd5be"
+    },
+    {
+      "path": "docs/authoring/c2/examples/menu.c2",
+      "bytes": 668,
+      "sha256": "d3354b56d702a529973a4d627ea4d4a4479d925bc3e4e37771afed1d598389b0"
+    },
+    {
       "path": "docs/authoring/c2/examples/minimal.c2",
       "bytes": 248,
       "sha256": "e062220f7f42f91ba94bebc4b7bef9a21c836b2cbb1261bd9f535c6f81631187"
     },
     {
+      "path": "docs/authoring/c2/examples/multi-funnel-routing.c2",
+      "bytes": 671,
+      "sha256": "e4e50b4d0fa0618717839dc50c47d2940c86bf0042a40434cb0202890fe501bb"
+    },
+    {
       "path": "docs/authoring/c2/examples/README.md",
-      "bytes": 524,
-      "sha256": "84edbf7295a87b00b9f77a6ac9605125083b2340f0ecc082f57204688e5e04e3"
+      "bytes": 3214,
+      "sha256": "96ede9549177e37eb24402c9ff41bc03cdac8e9cccfee7eb8e3611422967bace"
+    },
+    {
+      "path": "docs/authoring/c2/examples/start.c2",
+      "bytes": 256,
+      "sha256": "084d510ee9051ccfa55333b11e61ca3345c56c531484269ad2707bf313f319c2"
+    },
+    {
+      "path": "docs/authoring/c2/examples/survey.c2",
+      "bytes": 1509,
+      "sha256": "131c19cdd64172f72fe60f326134412c008009ff9acb8d195e71d50842caa358"
+    },
+    {
+      "path": "docs/authoring/c2/examples/telegram-direct-chat-id.c2",
+      "bytes": 559,
+      "sha256": "3f3ddf209c8f842a93da66454841c202f728b844feefb35a830fa30caf1f57e2"
+    },
+    {
+      "path": "docs/authoring/c2/examples/telegram-file-id-media.c2",
+      "bytes": 424,
+      "sha256": "ab3ad9fdec9ab54ecc65f25d4f1f2f6516867d06600ed123052f136952e7683a"
+    },
+    {
+      "path": "docs/authoring/c2/examples/telegram-inline-keyboards.c2",
+      "bytes": 4569,
+      "sha256": "2969e1db31d8bc4a6d9cc7d072c623379c5725c980c3a26e237b99d02552d555"
     },
     {
       "path": "docs/authoring/c2/examples/telegram-route.c2",
@@ -53,34 +123,39 @@
       "sha256": "c8a71e40a38059a3657ee85fda7e97a4d1b4caec072973186190615ec6e1eab1"
     },
     {
+      "path": "docs/authoring/c2/examples/telegram-update-capture.c2",
+      "bytes": 766,
+      "sha256": "d9fd25d575488f024315ce8a8325197362b17b9e8c043740fe5db994c680f2b8"
+    },
+    {
       "path": "docs/authoring/c2/LANGUAGE.md",
-      "bytes": 1018,
-      "sha256": "ab5153e2c743b06bcd08703b62d42200e8cd9beead8d2fee4dba24178c7edc32"
+      "bytes": 11975,
+      "sha256": "996e5b54665dab31dec3c3b436b130a7dbffc57413e25dd8d8ca96ad7fec0272"
     },
     {
       "path": "docs/authoring/c2/MACHINE_REFERENCE.md",
-      "bytes": 770,
-      "sha256": "f7168e9772faad82da753c2625cc0df01dac9020afd9c5b769126fae8ea009be"
+      "bytes": 2107,
+      "sha256": "c82cf15ce43e16a8f572b4d99b4d475e913d2695739e753cdbff8f516e2175fa"
     },
     {
       "path": "docs/authoring/c2/README.md",
-      "bytes": 696,
-      "sha256": "8a77f655f3487649d843c01bb9fbf5f17c4973d2e2be21c6d615ad264d36a8f0"
+      "bytes": 3949,
+      "sha256": "1acf67eab9ec228908968177ce114ee8e288e1d2eda6e59ef0148244a7233dc4"
     },
     {
       "path": "docs/authoring/c2/ROUTING.md",
-      "bytes": 1171,
-      "sha256": "f1711601b26b64fcfe3c68057904f7d7780e2212a3e37dd32849546a86fd047d"
+      "bytes": 4212,
+      "sha256": "7ea0616ce308aed8eba32d4ef2dc23f23d97ecc1bbf7414013915d5cbf5e3ae2"
     },
     {
       "path": "docs/authoring/providers/telegram.md",
-      "bytes": 513,
-      "sha256": "cd4669da4ec612378cb12b1e60eb4c59b9c0f58a378d9c2bf1e68ce72a0088ae"
+      "bytes": 1474,
+      "sha256": "ff0b4bfd01f0c52bdf260720bb8964798e0fa5c4bee73a2b4b391dfd012ee1a7"
     },
     {
       "path": "docs/authoring/schemas/README.md",
-      "bytes": 312,
-      "sha256": "4f3970514195948c760edf2a0ea7c8fcf6ef9c232829ef36e8f746beab90c1f3"
+      "bytes": 468,
+      "sha256": "1c38897dac509ba673f9d184ff20f1a164ad55a6619080043687149a12a3f8f8"
     },
     {
       "path": "legacy/v1-json/catalogs/AI_OPERATIONS_CATALOG_V1.json",
@@ -304,13 +379,13 @@
     },
     {
       "path": "llms.txt",
-      "bytes": 730,
-      "sha256": "f45bb50a2b6674dfa330d03ed490850de1e3cde64de291eaa0189acf94719221"
+      "bytes": 839,
+      "sha256": "6e8b5237f334109c316d816ea2de6f37112545050889430df8abed005944bf6f"
     },
     {
       "path": "README.md",
-      "bytes": 1182,
-      "sha256": "7a2f0b59c066558bee49b5956e693ba73acf95f12aadb34453aef1bdb2b74da1"
+      "bytes": 1001,
+      "sha256": "d362013ccf72ee136fba09c3eb68a4e0e4d6b9dc61aacf4401a22454646d229c"
     }
   ]
 }

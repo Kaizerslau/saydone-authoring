@@ -1,0 +1,16 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project direct_recipient(name: "Прямая отправка", locale: "ru")
+
+field manager_chat_id(type: text, scope: user, label: "Telegram chat менеджера")
+
+funnel main {
+  block literal_example {
+    saveState: false
+    message.send(text: "Сообщение в заданный private chat", chatId: "123456789")
+    next data_field_example
+  }
+  block data_field_example {
+    message.send(text: "Сообщение менеджеру или в группу", chatId: $manager_chat_id)
+  }
+}

@@ -1,0 +1,9 @@
+language "saydone-r2/1"
+registry "c2-public-1"
+project start_demo(name: "Старт", locale: "ru")
+external.route start(kind: action, value: start, target: main.start)
+funnel main {
+  block start {
+    message.send(text: "Здравствуйте")
+  }
+}

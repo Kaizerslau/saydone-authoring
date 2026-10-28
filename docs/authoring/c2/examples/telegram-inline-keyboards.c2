@@ -1,0 +1,63 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project keyboard_rows(name: "Inline keyboard rows", locale: "ru")
+external.route start(kind: action, value: start, target: main.start)
+
+funnel main {
+  block start {
+    message.send(text: "50 вариантов: первые четыре строки — 16-button раскладка")
+    message.button(key: choice_01, label: "Вариант 01", row: 1) => selected
+    message.button(key: choice_02, label: "Вариант 02", row: 1) => selected
+    message.button(key: choice_03, label: "Вариант 03", row: 1) => selected
+    message.button(key: choice_04, label: "Вариант 04", row: 1) => selected
+    message.button(key: choice_05, label: "Вариант 05", row: 2) => selected
+    message.button(key: choice_06, label: "Вариант 06", row: 2) => selected
+    message.button(key: choice_07, label: "Вариант 07", row: 2) => selected
+    message.button(key: choice_08, label: "Вариант 08", row: 2) => selected
+    message.button(key: choice_09, label: "Вариант 09", row: 3) => selected
+    message.button(key: choice_10, label: "Вариант 10", row: 3) => selected
+    message.button(key: choice_11, label: "Вариант 11", row: 3) => selected
+    message.button(key: choice_12, label: "Вариант 12", row: 3) => selected
+    message.button(key: choice_13, label: "Вариант 13", row: 4) => selected
+    message.button(key: choice_14, label: "Вариант 14", row: 4) => selected
+    message.button(key: choice_15, label: "Вариант 15", row: 4) => selected
+    message.button(key: choice_16, label: "Вариант 16", row: 4) => selected
+    message.button(key: choice_17, label: "Вариант 17", row: 5) => selected
+    message.button(key: choice_18, label: "Вариант 18", row: 5) => selected
+    message.button(key: choice_19, label: "Вариант 19", row: 5) => selected
+    message.button(key: choice_20, label: "Вариант 20", row: 5) => selected
+    message.button(key: choice_21, label: "Вариант 21", row: 5) => selected
+    message.button(key: choice_22, label: "Вариант 22", row: 5) => selected
+    message.button(key: choice_23, label: "Вариант 23", row: 6) => selected
+    message.button(key: choice_24, label: "Вариант 24", row: 6) => selected
+    message.button(key: choice_25, label: "Вариант 25", row: 6) => selected
+    message.button(key: choice_26, label: "Вариант 26", row: 6) => selected
+    message.button(key: choice_27, label: "Вариант 27", row: 6) => selected
+    message.button(key: choice_28, label: "Вариант 28", row: 6) => selected
+    message.button(key: choice_29, label: "Вариант 29", row: 7) => selected
+    message.button(key: choice_30, label: "Вариант 30", row: 7) => selected
+    message.button(key: choice_31, label: "Вариант 31", row: 7) => selected
+    message.button(key: choice_32, label: "Вариант 32", row: 7) => selected
+    message.button(key: choice_33, label: "Вариант 33", row: 7) => selected
+    message.button(key: choice_34, label: "Вариант 34", row: 7) => selected
+    message.button(key: choice_35, label: "Вариант 35", row: 8) => selected
+    message.button(key: choice_36, label: "Вариант 36", row: 8) => selected
+    message.button(key: choice_37, label: "Вариант 37", row: 8) => selected
+    message.button(key: choice_38, label: "Вариант 38", row: 8) => selected
+    message.button(key: choice_39, label: "Вариант 39", row: 8) => selected
+    message.button(key: choice_40, label: "Вариант 40", row: 8) => selected
+    message.button(key: choice_41, label: "Вариант 41", row: 9) => selected
+    message.button(key: choice_42, label: "Вариант 42", row: 9) => selected
+    message.button(key: choice_43, label: "Вариант 43", row: 9) => selected
+    message.button(key: choice_44, label: "Вариант 44", row: 9) => selected
+    message.button(key: choice_45, label: "Вариант 45", row: 9) => selected
+    message.button(key: choice_46, label: "Вариант 46", row: 9) => selected
+    message.button(key: choice_47, label: "Вариант 47", row: 10) => selected
+    message.button(key: choice_48, label: "Вариант 48", row: 10) => selected
+    message.button(key: choice_49, label: "Вариант 49", row: 10) => selected
+    message.button(key: choice_50, label: "Вариант 50", row: 10) => selected
+  }
+  block selected {
+    message.send(text: "Выбор принят")
+  }
+}

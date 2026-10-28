@@ -1,0 +1,17 @@
+{
+  "matrixVersion": 1,
+  "status": "current",
+  "authoringPath": "c2",
+  "languageVersion": "saydone-r2/1",
+  "verification": "c2_prepare_compile_runtime_scenarios",
+  "test": "packages/modules/bot-authoring/test/c2-basic-authoring.test.ts",
+  "productionDeployment": "not_asserted",
+  "scenarios": [
+    { "id": "survey", "fixture": "docs/authoring/c2/examples/survey.c2", "primitives": ["text_input", "number_input", "invalid_input", "buttons", "content_binding", "restart"] },
+    { "id": "menu", "fixture": "docs/authoring/c2/examples/menu.c2", "primitives": ["buttons", "exact_button_routing", "restart"] },
+    { "id": "lead-form", "fixture": "docs/authoring/c2/examples/lead-form.c2", "primitives": ["text_input", "email_input", "phone_input", "invalid_input", "attempts", "timeout", "content_binding"] },
+    { "id": "branching", "fixture": "docs/authoring/c2/examples/branching.c2", "primitives": ["on.text", "text_input", "content_binding", "restart"] }
+  ],
+  "regressions": [{ "primitive": "hosted_checkout", "test": "packages/modules/bot-authoring/test/c2-payment.test.ts" }],
+  "unsupported": ["telegram_contact", "request_contact", "request_location", "url_button", "button_aliases", "regex", "fuzzy", "expressions"]
+}

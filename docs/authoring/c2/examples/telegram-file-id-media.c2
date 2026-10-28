@@ -1,0 +1,11 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project telegram_media(name: "Telegram file_id media", locale: "ru")
+external.route start(kind: action, value: start, target: main.start)
+funnel main {
+  block start {
+    telegram.sendPhoto(fileId: "AgACAgIAAxkBAAI-example-photo")
+    telegram.sendVideo(fileId: "BAACAgIAAxkBAAI-example-video")
+    telegram.sendVideoNote(fileId: "DQACAgIAAxkBAAI-example-video-note")
+  }
+}

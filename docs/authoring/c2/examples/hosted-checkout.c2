@@ -1,0 +1,15 @@
+language "saydone-r2/1"
+registry "c2-public-1"
+project checkout_demo(name: "Оплата", locale: "ru")
+content checkout_ready(text: "Оплатите заказ", required: [])
+content paid(text: "Оплачено", required: [])
+funnel main {
+  block start {
+    billing.checkout(paymentKey: course, paymentAccountKey: main, checkoutType: one_time, description: "Курс", amount: "10.00", currency: RUB)
+    message.send(content: checkout_ready, buttonLabel: "Оплатить", buttonAction: hosted_checkout)
+    on.event(name: PAYMENT_SUCCEEDED, paymentKey: course) => done
+  }
+  block done {
+    message.send(content: paid)
+  }
+}

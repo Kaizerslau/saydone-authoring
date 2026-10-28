@@ -1,0 +1,39 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project survey(name: "Опрос", locale: "ru")
+field name(type: text, scope: user, label: "Имя")
+field age(type: number, scope: user, label: "Возраст")
+content welcome(text: "Здравствуйте", required: [])
+content ask_name(text: "Как вас зовут?", required: [])
+content ask_age(text: "Сколько вам лет?", required: [])
+content invalid_age(text: "Введите число", required: [])
+content confirmation(text: "Имя: {{name}}, возраст: {{age}}", required: [name, age])
+content thanks(text: "Спасибо за ответы", required: [])
+external.route start(kind: action, value: start, target: main.start)
+funnel main {
+  block start {
+    message.send(content: welcome)
+    message.button(key: begin, label: "Начать опрос") => name
+  }
+  block name {
+    message.send(content: ask_name)
+    input.capture(type: text, field: name) => age
+  }
+  block age {
+    message.send(content: ask_age)
+    input.capture(type: number, field: age, invalid: retry_age, maxAttempts: 3, exhausted: start) => confirm
+  }
+  block retry_age {
+    saveState: false
+    message.send(content: invalid_age)
+  }
+  block confirm {
+    message.send(content: confirmation)
+    message.button(key: yes, label: "Да") => done
+    message.button(key: no, label: "Нет") => name
+  }
+  block done {
+    message.send(content: thanks)
+    message.button(key: restart, label: "Начать заново") => start
+  }
+}

@@ -1,5 +1,8 @@
-# Schemas
+# Машинные схемы
 
-C2 — текстовая грамматика, для неё не публикуется JSON Schema. JSON schemas
-прежнего V1 JSON-authoring находятся в [legacy/v1-json](../../../legacy/v1-json/README.md)
-и не являются контрактом новых C2-ревизий.
+Новые сценарии создаются как C2 source, а не как independently editable JSON
+schema. Машинные snapshots и runtime artifacts создаются платформой после
+проверки исходника и не публикуются как authoring contract.
+
+Historical V1 JSON schemas находятся в `legacy/v1-json` только для
+совместимости и migration.

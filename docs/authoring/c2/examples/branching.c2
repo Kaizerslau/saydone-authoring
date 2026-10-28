@@ -1,0 +1,33 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project branching(name: "Диалог", locale: "ru")
+field topic(type: text, scope: flow, label: "Тема")
+field comment(type: text, scope: user, label: "Комментарий")
+content summary(text: "Тема: {{topic}}. Комментарий: {{comment}}", required: [topic, comment])
+external.route start(kind: action, value: start, target: main.start)
+funnel main {
+  block start {
+    message.send(text: "Продажи или поддержка? Можно ввести свою тему.")
+    on.text(equalsAny: ["Продажи", "Купить"], trim: true, ignoreCase: true) => sales
+    on.text(equals: "Поддержка") => support
+    input.capture(type: text, field: topic) => details
+  }
+  block sales {
+    saveState: false
+    data.set(field: topic, value: "Продажи")
+    next details
+  }
+  block support {
+    saveState: false
+    data.set(field: topic, value: "Поддержка")
+    next details
+  }
+  block details {
+    message.send(text: "Опишите вопрос")
+    input.capture(type: text, field: comment, trim: false, required: true) => done
+  }
+  block done {
+    message.send(content: summary)
+    message.button(key: restart, label: "Другая тема") => start
+  }
+}

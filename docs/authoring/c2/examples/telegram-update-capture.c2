@@ -1,0 +1,19 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project telegram_capture(name: "Telegram capture", locale: "ru")
+field raw_update(type: text, scope: flow, label: "Raw Telegram update")
+content prompt(text: "Отправьте следующее текстовое, контактное или media-сообщение.", required: [])
+content echo(text: "Получен Telegram update: {{raw_update}}", required: [raw_update])
+external.route start(kind: action, value: start, target: main.start)
+funnel main {
+  block start {
+    message.send(content: prompt)
+    on.command(name: capture) => wait_update
+  }
+  block wait_update {
+    input.capture(type: telegram_update, field: raw_update) => received
+  }
+  block received {
+    message.send(content: echo)
+  }
+}

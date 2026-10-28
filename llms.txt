@@ -1,15 +1,12 @@
-# SayDone C2 authoring context
+# SayDone Language C2
 
-Primary authoring source is complete C2 text. JSON is a deterministic machine snapshot.
+- Начало: [AI_START_HERE.md](AI_START_HERE.md)
+- Язык: [docs/authoring/c2/LANGUAGE.md](docs/authoring/c2/LANGUAGE.md)
+- Операции: [docs/authoring/c2/CORE_OPERATIONS.md](docs/authoring/c2/CORE_OPERATIONS.md)
+- Маршрутизация: [docs/authoring/c2/ROUTING.md](docs/authoring/c2/ROUTING.md)
+- Поля и интеграции: [docs/authoring/c2/DATA_AND_INTEGRATIONS.md](docs/authoring/c2/DATA_AND_INTEGRATIONS.md)
+- Lifecycle: [docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md](docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md)
+- Проверяемые examples: [docs/authoring/c2/examples/README.md](docs/authoring/c2/examples/README.md)
 
-Read progressively:
-1. AI_START_HERE.md
-2. docs/authoring/c2/LANGUAGE.md
-3. docs/authoring/c2/CORE_OPERATIONS.md
-4. docs/authoring/c2/DATA_AND_INTEGRATIONS.md when data, HTTP, timers, or subflows are needed
-5. docs/authoring/c2/ROUTING.md when inputs or external routes are needed
-6. docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md when validating or replacing a revision
-7. docs/authoring/providers/telegram.md only for Telegram-specific facts
-8. docs/authoring/c2/examples/README.md for production-valid examples
-
-Do not use legacy/v1-json for new C2 revisions. It is historical and migration reference only.
+Основной формат нового authoring — полный C2 source. `legacy/v1-json` — только
+совместимость и history.

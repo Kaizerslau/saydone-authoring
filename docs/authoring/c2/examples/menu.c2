@@ -1,0 +1,19 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project menu(name: "Меню", locale: "ru")
+external.route start(kind: action, value: start, target: main.start)
+funnel main {
+  block start {
+    message.send(text: "Выберите раздел")
+    message.button(key: help, label: "Справка") => help
+    message.button(key: contacts, label: "Контакты") => contacts
+  }
+  block help {
+    message.send(text: "Справочная информация")
+    message.button(key: back, label: "Назад") => start
+  }
+  block contacts {
+    message.send(text: "support@example.test")
+    message.button(key: back, label: "Назад") => start
+  }
+}

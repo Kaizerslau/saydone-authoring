@@ -1,0 +1,38 @@
+language "saydone-r2/1"
+registry "c2-dialogue-1"
+project lead(name: "Заявка", locale: "ru")
+field name(type: text, scope: user, label: "Имя")
+field email(type: text, format: email, scope: user, label: "Почта")
+field phone(type: text, format: phone, scope: user, label: "Телефон")
+content confirmation(text: "{{name}}: {{email}}, {{phone}}", required: [name, email, phone])
+external.route start(kind: action, value: start, target: main.name)
+funnel main {
+  block name {
+    message.send(text: "Как вас зовут?")
+    input.capture(type: text, field: name) => email
+  }
+  block email {
+    message.send(text: "Введите email")
+    input.capture(type: email, field: email, invalid: retry, maxAttempts: 2, exhausted: name, after: "5m", timeout: expired) => phone
+  }
+  block phone {
+    message.send(text: "Телефон в формате +79991234567")
+    input.capture(type: phone, field: phone, invalid: retry, maxAttempts: 2, exhausted: name) => confirm
+  }
+  block retry {
+    saveState: false
+    message.send(text: "Неверный формат, повторите")
+  }
+  block expired {
+    message.send(text: "Время ожидания истекло")
+    message.button(key: restart, label: "Начать заново") => name
+  }
+  block confirm {
+    message.send(content: confirmation)
+    message.button(key: confirm, label: "Подтвердить") => done
+    message.button(key: edit, label: "Исправить") => name
+  }
+  block done {
+    message.send(text: "Заявка принята")
+  }
+}
