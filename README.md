@@ -11,3 +11,14 @@ JSON не является исходным форматом новой реви
 
 Материалы в `legacy/v1-json` сохранены только для history и migration. Не
 используйте V1 JSON для новых C2-сценариев.
+
+## Один Project — один полный C2
+
+Для нового Project все Funnel можно писать сразу в одном C2-документе.
+Один project и несколько funnel образуют общую composition; не создавайте
+обязательные независимые исходники или версии каждой Funnel.
+Практический workflow и отличие от legacy: [LANGUAGE.md](docs/authoring/c2/LANGUAGE.md#единый-project-и-несколько-funnel).
+[Полный пример sales/support](docs/authoring/c2/examples/multi-funnel-routing.c2)
+показывает локальные переходы и cross-funnel route через transient блоки.
+Сохранение, проверка exact revision, публикация и operational Enable раздельны.
+Legacy данные и механизмы совместимости сохраняются.

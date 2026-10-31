@@ -16,7 +16,7 @@
 - [core-flow.c2](./core-flow.c2) — DataFields, rules, HTTP, schedule и subflow;
 - [telegram-route.c2](./telegram-route.c2) — provider-aware external route
   текущим однострочным named call.
-- [multi-funnel-routing.c2](./multi-funnel-routing.c2) — две независимые Funnel,
+- [multi-funnel-routing.c2](./multi-funnel-routing.c2) — два логических раздела Funnel в одном Project C2,
   exact external routes и явный cross-funnel `route` через transient block.
 - [hosted-checkout.c2](./hosted-checkout.c2) — `billing.checkout`, одно
   `hosted_checkout` действие и exact `PAYMENT_SUCCEEDED` continuation. Это

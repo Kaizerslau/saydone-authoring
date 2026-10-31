@@ -1,9 +1,11 @@
 # Внешние маршруты SayDone Language
 
 `external.route` сопоставляет exact normalized semantic input с logical block.
-Product composition Funnel и глобальная точная маршрутизация определены
-принятым product architecture решением; runtime semantics
-ниже остаются authority. Provider/integration ограничиваются только явно
+В новом authoring один Project source содержит несколько Funnel по DEC-0213.
+Маршруты связывают их logical block keys внутри общей composition; отдельные
+версии Funnel выбирать не требуется. См. [полный пример](./examples/multi-funnel-routing.c2)
+и [порядок авторинга](./LANGUAGE.md#единый-project-и-несколько-funnel).
+Существующие runtime правила точного выбора ниже сохраняются. Provider/integration ограничиваются только явно
 написанными условиями, а технический route index не является ручным назначением
 Funnel к каналу.
 Ниже показаны изолированные top-level declarations: в текущей production grammar

@@ -3,29 +3,28 @@
   "sourceRepository": "Kaizerslau/saydone-authoring",
   "publicationSource": {
     "repository": "Kaizerslau/saydone",
-    "commit": "927732970e28d3785876c75b0eea651df05be767"
+    "commit": "dca131cd1da791bae38d789b21b454876f4b7011"
   },
   "legacySource": {
     "repository": "Kaizerslau/saydone-authoring",
-    "commit": "65efb9edb1b84f5371da85f9731d95ef04105fad",
-    "manifestSha256": "5757f61791577a7ea5ef4afb1498960db8f959f5d5815cc9e43ef1c8d6c445fc",
+    "manifestSha256": "6e6d6dec7f241b461bd4feb44c0119c8be09c16800e69bfce92799e91bf96c48",
     "files": 44
   },
   "files": [
     {
       "path": "AI_START_HERE.md",
-      "bytes": 1926,
-      "sha256": "d7ef725cfd3fa9eb1112c002dd27c6f829e7d045c3fa5c6144aac777fbfc04a7"
+      "bytes": 2890,
+      "sha256": "9d895b07ab048d338ea83f42743f0f02dad021d3bd9172f02dcbaa602726a40a"
     },
     {
       "path": "docs/authoring/C2_PUBLICATION_PROVENANCE.md",
       "bytes": 512,
-      "sha256": "b4e76a550ae4f8015a172813634075436f881e9be147dcccbdd9546b349540cc"
+      "sha256": "db760644e3b0266e45888ed40bc410c0bfa5c6f5f04ae7e39b568b3cf3857e44"
     },
     {
       "path": "docs/authoring/c2/ACCEPTANCE_AND_LIFECYCLE.md",
-      "bytes": 2080,
-      "sha256": "2dae4cc6071a221645af090dc3699a7943129f50a4258f6228d0cbe3657f5c29"
+      "bytes": 2586,
+      "sha256": "078f9b3c689c05535cd63f70792d983ae3cc025dbf8cdcd4d8a2b6d179952cd1"
     },
     {
       "path": "docs/authoring/c2/COMPLETENESS_MATRIX.json",
@@ -89,8 +88,8 @@
     },
     {
       "path": "docs/authoring/c2/examples/README.md",
-      "bytes": 3214,
-      "sha256": "96ede9549177e37eb24402c9ff41bc03cdac8e9cccfee7eb8e3611422967bace"
+      "bytes": 3252,
+      "sha256": "d46aec9ce66421872ba180fc79be09e458c34e72f2be3e0f413e3a45c4beab11"
     },
     {
       "path": "docs/authoring/c2/examples/start.c2",
@@ -129,8 +128,8 @@
     },
     {
       "path": "docs/authoring/c2/LANGUAGE.md",
-      "bytes": 11975,
-      "sha256": "996e5b54665dab31dec3c3b436b130a7dbffc57413e25dd8d8ca96ad7fec0272"
+      "bytes": 15509,
+      "sha256": "1618c0066b767f951532c01ac960d136d5aba59f6ddfe63834993167581d1813"
     },
     {
       "path": "docs/authoring/c2/MACHINE_REFERENCE.md",
@@ -139,13 +138,13 @@
     },
     {
       "path": "docs/authoring/c2/README.md",
-      "bytes": 3949,
-      "sha256": "1acf67eab9ec228908968177ce114ee8e288e1d2eda6e59ef0148244a7233dc4"
+      "bytes": 4783,
+      "sha256": "74471e76357931673439c6dbcf291d40be2cfe0e7ad931265a6e817a707f7a0b"
     },
     {
       "path": "docs/authoring/c2/ROUTING.md",
-      "bytes": 4212,
-      "sha256": "7ea0616ce308aed8eba32d4ef2dc23f23d97ecc1bbf7414013915d5cbf5e3ae2"
+      "bytes": 4557,
+      "sha256": "e888c6f89703e2cb721fbdadc95228aba601db502f6caef416d948a14095ab7d"
     },
     {
       "path": "docs/authoring/providers/telegram.md",
@@ -379,13 +378,13 @@
     },
     {
       "path": "llms.txt",
-      "bytes": 839,
-      "sha256": "6e8b5237f334109c316d816ea2de6f37112545050889430df8abed005944bf6f"
+      "bytes": 1080,
+      "sha256": "17cd24c3a73723aa786b65edd05575a70026c65ae31dbe108bd8c8f8d34e5c6d"
     },
     {
       "path": "README.md",
-      "bytes": 1001,
-      "sha256": "d362013ccf72ee136fba09c3eb68a4e0e4d6b9dc61aacf4401a22454646d229c"
+      "bytes": 1965,
+      "sha256": "d6169edaf6a7d1d66c76e6aa90ded29af37c4b4373ead45302f05eceadc7be30"
     }
   ]
 }

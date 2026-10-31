@@ -25,3 +25,10 @@ compiled package checksum. Persisted source revision неизменяема; edi
 `applyC2SourceReplacementV2` принимает только exact current
 revision/checksum и отклоняет stale source как `c2.patch_stale_source`. Fuzzy
 patch и requirement-repair model loop не входят в CN-1E.
+
+## Project-first workflow
+
+Одна immutable Project revision связывает полный source со всеми Funnel.
+Сохранение, проверка exact revision, применение/публикация и operational Enable
+остаются разными действиями. Новый authoring не требует отдельных source/version
+для каждого раздела. Legacy версии и attachments сохраняются для совместимости.

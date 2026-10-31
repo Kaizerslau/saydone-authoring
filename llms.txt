@@ -10,3 +10,7 @@
 
 Основной формат нового authoring — полный C2 source. `legacy/v1-json` — только
 совместимость и history.
+
+Current authoring: one Project has one full C2 source with multiple funnel sections.
+Do not require independent Funnel source versions or attachments for new Projects.
+See docs/authoring/c2/LANGUAGE.md and examples/multi-funnel-routing.c2.

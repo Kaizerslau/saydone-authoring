@@ -17,11 +17,19 @@ Language в runtime отсутствует.
 
 ## Продуктовая композиция
 
-принятым product architecture решением принимает Funnel
-как независимую versioned единицу и Project composition с отдельным явным
-выбором версии. Это не меняет данную C2 source boundary и не делает JSON вторым
-исходником. Независимое persistence Funnel/versions и целевой UX пока не
-доказаны end-to-end: решение имеет `partial` implementation status.
+**Для нового Project все Funnel можно писать сразу в одном C2-документе.**
+Один Project владеет одним canonical authored source; каждый `funnel` — логический
+раздел единой composition. Изменения сохраняются как immutable Project revisions.
+[Практический порядок](./LANGUAGE.md#единый-project-и-несколько-funnel) и
+[полный copy-ready пример с sales/support](./examples/multi-funnel-routing.c2)
+показывают маршруты между разделами без отдельных исходников.
+
+текущей Project-first моделью задаёт текущую модель.
+Предварительно создавать Funnel, её независимые версии или attachments для нового
+authoring не требуется. Legacy source/version/attachment механизмы сохраняются;
+историческая модель DEC-0195/DEC-0198 не является обязательным новым workflow.
+Save, проверка, публикация/применение и operational Enable — отдельные действия;
+сохранение исходника не включает автоматизацию.
 
 Основные разделы:
 

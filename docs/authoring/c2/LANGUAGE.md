@@ -163,3 +163,39 @@ copy-ready пример с 16 первыми и всеми 50 кнопками: 
 Их наличие в BotSpec не расширяет C2. Старые C2 без новых форм сохраняют
 semantic shape/checksum; миграция persisted source не требуется. Это граница
 исходников и тестов; production rollout устанавливается отдельным evidence.
+
+## Единый Project и несколько Funnel
+
+**Для нового Project все Funnel можно писать сразу в одном C2-документе.**
+Один полный файл начинается с language/registry и одного project; далее объявляйте
+общие field/content и несколько funnel. Внутри каждой funnel объявляются block.
+Это логические разделы одного Project source, а изменения всего файла создают
+immutable Project revisions. Отдельное создание каждой Funnel, независимые
+исходники, выбор её версии и attachments не являются предпосылками нового authoring.
+
+Откройте [полный copy-ready пример sales/support](./examples/multi-funnel-routing.c2).
+Он содержит project routed_demo, funnel sales и support, внешние маршруты и
+переходы в обе стороны. Используйте существующие language/registry из примера.
+Внешний маршрут action start в этом примере не означает Telegram /start; provider
+команды задаются существующими normalized-input правилами ROUTING.md.
+
+Внутри Funnel next, on.event и on.command указывают локальные block keys; кнопка
+message.button направляет в локальный block после =>. Для перехода в другую
+Funnel используйте route funnel_key.block_key. Когда event/command/button должен
+перейти в другой раздел, направьте его сначала в локальный промежуточный блок с
+saveState: false, затем выполните route. В примере это sales.bridge и support.back.
+Не заменяйте локальную цель на несуществующий синтаксис cross-funnel on.event.
+Точные правила и внешние входы: [ROUTING.md](./ROUTING.md).
+
+В Project Editor (SayDone Language) вставьте полный файл на вкладке исходника
+Project и сохраните. Разделы Funnel выводятся из сохранённого C2. Проведите
+существующую проверку сохранённой exact revision; устраните диагностику и выполните
+действие «Применить и опубликовать». Проверка может требовать настроенного
+канала и прав. Operational «Включить» выполняется отдельно при необходимости;
+Save или Publish не подразумевают Enable. При редактировании заново сохраняйте
+и проверяйте текущую revision. Не публикуйте автоматически изменённый черновик.
+
+Сохранённые legacy independent Funnel versions, attachments и их immutable
+история продолжают существовать; этот текст не разрешает их удаление или migration.
+Для нового Project используйте Project-first путь, не собирайте его вручную
+из обязательных независимых исходников.
